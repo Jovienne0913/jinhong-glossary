@@ -14,25 +14,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC"
 .stats { display: flex; gap: 12px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
 .stat-badge { background: white; border-radius: 8px; padding: 8px 16px; font-size: 13px; color: #1a365d; font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 .stat-badge span { color: #2563eb; font-weight: 700; font-size: 16px; }
-
-/* Category 1 */
 .cat1-toggle { display: none; }
-.cat1-label { display: flex; align-items: center; justify-content: space-between; background: #1a365d; color: white; padding: 14px 20px; border-radius: 10px; margin-bottom: 8px; cursor: pointer; font-size: 17px; font-weight: 600; user-select: none; transition: background 0.2s; }
+.cat1-label { display: flex; align-items: center; justify-content: space-between; background: #1a365d; color: white; padding: 14px 20px; border-radius: 10px; margin-bottom: 8px; cursor: pointer; font-size: 17px; font-weight: 600; user-select: none; }
 .cat1-label:hover { background: #2563eb; }
 .cat1-label .arrow { transition: transform 0.3s; font-size: 14px; }
 .cat1-toggle:checked + .cat1-label .arrow { transform: rotate(90deg); }
 .cat1-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
-.cat1-toggle:checked ~ .cat1-content { max-height: 50000px; }
-
-/* Category 2 */
+.cat1-toggle:checked ~ .cat1-content { max-height: 100000px; }
 .cat2-toggle { display: none; }
-.cat2-label { display: flex; align-items: center; justify-content: space-between; background: #e8edf3; color: #1a365d; padding: 10px 18px; border-radius: 8px; margin: 6px 0 4px 0; cursor: pointer; font-size: 15px; font-weight: 500; user-select: none; transition: background 0.2s; }
+.cat2-label { display: flex; align-items: center; justify-content: space-between; background: #e8edf3; color: #1a365d; padding: 10px 18px; border-radius: 8px; margin: 6px 0 4px 0; cursor: pointer; font-size: 15px; font-weight: 500; user-select: none; }
 .cat2-label:hover { background: #d1dbe8; }
 .cat2-label .arrow { transition: transform 0.3s; font-size: 12px; }
 .cat2-toggle:checked + .cat2-label .arrow { transform: rotate(90deg); }
 .cat2-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; }
-.cat2-toggle:checked ~ .cat2-content { max-height: 30000px; }
-
+.cat2-toggle:checked ~ .cat2-content { max-height: 50000px; }
 table { width: 100%; border-collapse: collapse; margin: 6px 0 12px 0; font-size: 14px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
 th { background: #f1f5f9; color: #475569; font-weight: 600; padding: 10px 12px; text-align: left; border-bottom: 2px solid #e2e8f0; }
 td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
@@ -40,8 +35,10 @@ tr:last-child td { border-bottom: none; }
 tr:hover { background: #f8fafc; }
 .term-name { font-weight: 600; color: #1a365d; }
 .term-en { font-size: 12px; color: #64748b; display: block; margin-top: 2px; }
-.term-defn { color: #374151; }
 .term-empty { color: #cbd5e1; font-style: italic; }
+.pending-tag { display: inline-block; background: #fef3c7; color: #92400e; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-left: 8px; font-weight: 500; }
+.pending-cat { background: linear-gradient(135deg, #92400e 0%, #d97706 100%) !important; }
+.pending-cat:hover { background: linear-gradient(135deg, #78350f 0%, #b45309 100%) !important; }
 .footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 12px; }
 </style>
 </head>
@@ -52,38 +49,46 @@ tr:hover { background: #f8fafc; }
 </div>
 <div class="container">
 <div class="stats">
-<div class="stat-badge">一级分类 <span>7</span></div>
-<div class="stat-badge">二级分类 <span>22</span></div>
-<div class="stat-badge">术语总数 <span>43</span></div>
+<div class="stat-badge">一级分类 <span>8</span></div>
+<div class="stat-badge">二级分类 <span>24</span></div>
+<div class="stat-badge">术语总数 <span>67</span></div>
 </div>
-
-<input type="checkbox" class="cat1-toggle" id="cat1_1" checked>
-<label class="cat1-label" for="cat1_1"><span>供应链战略与运营管理</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat1-toggle" id="c1_1" checked>
+<label class="cat1-label" for="c1_1"><span>供应链战略与运营管理</span><span class="arrow">▶</span></label>
 <div class="cat1-content">
-<input type="checkbox" class="cat2-toggle" id="cat2_1_6126" checked>
-<label class="cat2-label" for="cat2_1_6126"><span>组织协同机制（1条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_1_7992" checked>
+<label class="cat2-label" for="c2_1_7992"><span>运营体系（3条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
-<tr><td><span class="term-name">ST会议</span></td><td></td><td><span class="term-defn">由供应链中心管理层相关成员组成的常设议事组织，针对供应链中心各类核心运营事项开展集体研讨、形成统一共识并出具决议，讨论事项包括对管理损耗基准拟定成果开展会审复核、出具集体确认意见与终审决议。</span></td><td>供应链中心级常设议事组织；损耗基准终审机构</td></tr>
+<tr><td><span class="term-name">IPD Integrated Product Development（集成产品开发）</span></td><td>Integrated Product Development</td><td>一套跨职能、端到端的新品全生命周期标准化管理体系，以市场商业价值为核心导向，打通企划设计、技术研发、采购生产、质量管控、商品运营等多部门业务壁垒，把商品上新按商业化项目模式实施分级决策与分阶段评审，覆盖商品从规划立项、开发打样、物料筹备、批量生产、上市销售到退市复盘的完整生命周期。</td><td>跨职能端到端管理体系；商业化项目模式；分级决策+分阶段评审；覆盖全生命周期</td></tr>
+<tr><td><span class="term-name">ISC Integrated Supply Chain（集成供应链）</span></td><td>Integrated Supply Chain</td><td>端到端一体化供应链全域运营管理体系，以需求计划为源头串联商品规划、物料寻源采购、加工协同、供应商全生命周期管理等全链条业务，破除模块信息孤岛，依托标准化流程与数据协同实现产销匹配、成本压降、交期保障与供应链风险统一治理，承接IPD集成产品开发前端开发输出结果，依托MDP主开发计划落地节点排产与物料交付执行。</td><td>IPD下游执行体系；需求驱动全链条协同；产销匹配+成本压降+交期保障+风险治理</td></tr>
+<tr><td><span class="term-name">MDP Master Development Plan（主开发计划）</span></td><td>Main Development Plan</td><td>以全链路交期管控为核心的顶层总排期计划，属于IPD（Integrated Product Development，集成产品开发）体系下的项目总进度基线文件。统筹各产品线、产品季全品类商品，从款式开发立项、多轮打样确认、面辅料寻源采购、物料齐套、外协加工生产直至成品入库履约全流程关键里程碑，统一锁定各环节节点、前置依赖关系与最终交付交期，作为跨部门、多供方协同的统一时间基准，核心负责交期计划编制、节点跟进、逾期风险预警与进度闭环管控。</td><td>IPD体系总进度基线；全链路交期管控；跨部门/多供方协同时间基准</td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_1_1077" checked>
-<label class="cat2-label" for="cat2_1_1077"><span>项目管理（1条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_1_35" checked>
+<label class="cat2-label" for="c2_1_35"><span>组织协同机制（2条）</span><span class="arrow">▶</span></label>
+<div class="cat2-content">
+<table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
+<tr><td><span class="term-name">CEG Category Expert Group（CEG）</span></td><td></td><td>以生产端物料、外协加工品类为最小作战单元，承载采购域供应商与物料全生命周期管理工作的跨职能虚拟执行组织；对齐 Q（Quality 质量）、C（Cost 成本）、D（Delivery 交付）、T/I（Technology/Innovation 技术/创新）核心目标，可在授权限定范围内开展品类业务决策，仅可在授权范围内行使决策权，非顶层决策机构。</td><td>跨职能虚拟组织；按品类划分最小作战单元；授权范围内品类决策</td></tr>
+<tr><td><span class="term-name">ST会议</span></td><td></td><td>由供应链中心管理层相关成员组成的常设议事组织，针对供应链中心各类核心运营事项开展集体研讨、形成统一共识并出具决议，讨论事项包括对管理损耗基准拟定成果开展会审复核、出具集体确认意见与终审决议。</td><td>供应链中心级常设议事组织；损耗基准终审机构</td></tr>
+</tbody></table></div>
+<input type="checkbox" class="cat2-toggle" id="c2_1_8138" checked>
+<label class="cat2-label" for="c2_1_8138"><span>项目管理（1条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
 <tr><td><span class="term-name">项目Charter</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_1_1100" checked>
-<label class="cat2-label" for="cat2_1_1100"><span>流程管理（1条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_1_9932" checked>
+<label class="cat2-label" for="c2_1_9932"><span>流程管理（1条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
 <tr><td><span class="term-name">流程治理</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
 </div>
-<input type="checkbox" class="cat1-toggle" id="cat1_2" checked>
-<label class="cat1-label" for="cat1_2"><span>产品与物料管理</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat1-toggle" id="c1_2" checked>
+<label class="cat1-label" for="c1_2"><span>产品与物料管理</span><span class="arrow">▶</span></label>
 <div class="cat1-content">
-<input type="checkbox" class="cat2-toggle" id="cat2_2_4489" checked>
-<label class="cat2-label" for="cat2_2_4489"><span>产品开发管理（5条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_2_6466" checked>
+<label class="cat2-label" for="c2_2_6466"><span>产品开发管理（5条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
 <tr><td><span class="term-name">K1 HBC打开</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
@@ -92,122 +97,179 @@ tr:hover { background: #f8fafc; }
 <tr><td><span class="term-name">K4面料选择</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 <tr><td><span class="term-name">K5顾客验证</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_2_2958" checked>
-<label class="cat2-label" for="cat2_2_2958"><span>物料管理（2条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_2_2359" checked>
+<label class="cat2-label" for="c2_2_2359"><span>物料管理（2条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
-<tr><td><span class="term-name">BOM</span></td><td>Bill of Material</td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
-<tr><td><span class="term-name">规划物料</span></td><td></td><td><span class="term-defn">由集团在产品开发前统一规划，已明确规格、供应资源及价格控制标准，可在多款式中复用的标准化物料。由产品事业部按季度统筹与确认，可在集团多品牌、多条产品线通用复用，使用体量规模大、品质稳定可控，同时具备产品力提升属性的物料。</span></td><td>季度统筹确认；多品牌/多产品线通用复用；规格/资源/价格三明确</td></tr>
+<tr><td><span class="term-name">BOM Bill of Materials（BOM）</span></td><td>Bill of Material</td><td>指产品生产所需物料及用量信息的集合，通常包括产品主数据、物料主数据、使用部位、物料颜色、物料规格、门幅及用量等信息，是系统计算物料需求数量的基础。</td><td>系统计算物料需求的基础数据集合</td></tr>
+<tr><td><span class="term-name">规划物料</span></td><td></td><td>由集团在产品开发前统一规划，已明确规格、供应资源及价格控制标准，可在多款式中复用的标准化物料。由产品事业部按季度统筹与确认，可在集团多品牌、多条产品线通用复用，使用体量规模大、品质稳定可控，同时具备产品力提升属性的物料。</td><td>季度统筹确认；多品牌/多产品线通用复用；规格/资源/价格三明确</td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_2_7168" checked>
-<label class="cat2-label" for="cat2_2_7168"><span>面辅料管理（1条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_2_8253" checked>
+<label class="cat2-label" for="c2_2_8253"><span>面辅料管理（1条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
 <tr><td><span class="term-name">面料资源池</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
 </div>
-<input type="checkbox" class="cat1-toggle" id="cat1_3" >
-<label class="cat1-label" for="cat1_3"><span>生产采购管理</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat1-toggle" id="c1_3" >
+<label class="cat1-label" for="c1_3"><span>生产采购管理</span><span class="arrow">▶</span></label>
 <div class="cat1-content">
-<input type="checkbox" class="cat2-toggle" id="cat2_3_1312" checked>
-<label class="cat2-label" for="cat2_3_1312"><span>采购管理（1条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_3_1604" checked>
+<label class="cat2-label" for="c2_3_1604"><span>采购管理（3条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
-<tr><td><span class="term-name">采购合同</span></td><td></td><td><span class="term-defn">为明确采购方与供货方物料采购权利义务关系，依法签订的正式书面协议，具备法律效力。</span></td><td>法律约束力合同</td></tr>
+<tr><td><span class="term-name">采购申请单 Purchase Requisition（PR）</span></td><td>PR</td><td>采购部或生产部发起，用于申请采购物料或加工的申请单，并需经内部审批的流程单据。PR本身不具备法律约束力，仅作为采购需求凭证。</td><td>采购流程起点单据</td></tr>
+<tr><td><span class="term-name">采购订单 Purchase Order（PO）</span></td><td>PO</td><td>由采购方向供货方发出的书面采购指令，包含物料名称、规格、数量、价格、交货期等核心信息，是双方履约的重要依据。</td><td>采购执行环节核心单据</td></tr>
+<tr><td><span class="term-name">采购合同</span></td><td></td><td>为明确采购方与供货方物料采购权利义务关系，依法签订的正式书面协议，具备法律效力。</td><td>法律约束力合同</td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_3_8586" checked>
-<label class="cat2-label" for="cat2_3_8586"><span>生产管理（2条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_3_8015" checked>
+<label class="cat2-label" for="c2_3_8015"><span>生产管理（2条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
 <tr><td><span class="term-name">CMT</span></td><td>Cut Make Trim</td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 <tr><td><span class="term-name">ODM</span></td><td>Original Design Manufacturer</td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_3_7221" checked>
-<label class="cat2-label" for="cat2_3_7221"><span>订单交付管理（2条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_3_3849" checked>
+<label class="cat2-label" for="c2_3_3849"><span>订单交付管理（2条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
 <tr><td><span class="term-name">返单</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 <tr><td><span class="term-name">追单</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
 </div>
-<input type="checkbox" class="cat1-toggle" id="cat1_4" >
-<label class="cat1-label" for="cat1_4"><span>供应商管理</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat1-toggle" id="c1_4" >
+<label class="cat1-label" for="c1_4"><span>供应商管理</span><span class="arrow">▶</span></label>
 <div class="cat1-content">
-<input type="checkbox" class="cat2-toggle" id="cat2_4_3705" checked>
-<label class="cat2-label" for="cat2_4_3705"><span>供应商准入管理（1条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_4_6361" checked>
+<label class="cat2-label" for="c2_4_6361"><span>供应商准入管理（1条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
 <tr><td><span class="term-name">供应商准入</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_4_7120" checked>
-<label class="cat2-label" for="cat2_4_7120"><span>供应商能力管理（2条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_4_5528" checked>
+<label class="cat2-label" for="c2_4_5528"><span>供应商能力管理（2条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
-<tr><td><span class="term-name">产能规划</span></td><td></td><td><span class="term-defn">由供应链中心/供应商管理部主导、每半年度开展的供应链前置统筹工作，结合产品季别生产需求及外协加工供应商绩效、分层分级结果，测算各供应商品类别可承载产能，合理分配订单配额、管控生产负荷，提前排查产能瓶颈、储备备选资源，优化产能与订单分配，旨在确保订单品质、成本、交期（QCD）可控落地。</span></td><td>半年度统筹；供应商管理部主导；订单配额分配+产能瓶颈排查+QCD落地</td></tr>
+<tr><td><span class="term-name">产能规划</span></td><td></td><td>由供应链中心/供应商管理部主导、每半年度开展的供应链前置统筹工作，结合产品季别生产需求及外协加工供应商绩效、分层分级结果，测算各供应商品类别可承载产能，合理分配订单配额、管控生产负荷，提前排查产能瓶颈、储备备选资源，优化产能与订单分配，旨在确保订单品质、成本、交期（QCD）可控落地。</td><td>半年度统筹；供应商管理部主导；订单配额分配+产能瓶颈排查+QCD落地</td></tr>
 <tr><td><span class="term-name">柔性产能</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_4_8507" checked>
-<label class="cat2-label" for="cat2_4_8507"><span>供应商资源池管理（1条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_4_1714" checked>
+<label class="cat2-label" for="c2_4_1714"><span>供应商资源池管理（1条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
-<tr><td><span class="term-name">加工供应商资源池</span></td><td></td><td><span class="term-defn">由供应链中心供应商管理部按产品季别编制发布，按品类、产品线搭建并公示净加工类供应商资源池，明确本季度可开展打样开发、加工询价议价、生产加工签约合作的加工供应商范围，是各加工业务筛选合作供方、开展外协加工业务的合规执行依据。</span></td><td>按季别发布；供应商管理部编制；外协加工业务合规依据</td></tr>
+<tr><td><span class="term-name">加工供应商资源池</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_4_5314" checked>
-<label class="cat2-label" for="cat2_4_5314"><span>供应商生命周期管理（1条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_4_9492" checked>
+<label class="cat2-label" for="c2_4_9492"><span>供应商评价管理（1条）</span><span class="arrow">▶</span></label>
+<div class="cat2-content">
+<table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
+<tr><td><span class="term-name">QCD评价 Quality, Cost, Delivery（QCD）</span></td><td>Quality Cost Delivery</td><td>在供应链采购领域，QCD即质量、成本、交期，是用于考核供应商及供应链内部各环节履约与运营水平的核心三维绩效评价指标。</td><td>供应商及供应链运营核心三维考核指标</td></tr>
+</tbody></table></div>
+<input type="checkbox" class="cat2-toggle" id="c2_4_4102" checked>
+<label class="cat2-label" for="c2_4_4102"><span>供应商生命周期管理（1条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
 <tr><td><span class="term-name">战略供应商</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
 </div>
-<input type="checkbox" class="cat1-toggle" id="cat1_5" >
-<label class="cat1-label" for="cat1_5"><span>技术与质量管理</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat1-toggle" id="c1_5" >
+<label class="cat1-label" for="c1_5"><span>技术与质量管理</span><span class="arrow">▶</span></label>
 <div class="cat1-content">
-<input type="checkbox" class="cat2-toggle" id="cat2_5_5433" checked>
-<label class="cat2-label" for="cat2_5_5433"><span>技术管理（2条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_5_8609" checked>
+<label class="cat2-label" for="c2_5_8609"><span>技术管理（2条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
 <tr><td><span class="term-name">工艺标准</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 <tr><td><span class="term-name">技术资料</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_5_8142" checked>
-<label class="cat2-label" for="cat2_5_8142"><span>质量管理（2条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_5_6678" checked>
+<label class="cat2-label" for="c2_5_6678"><span>质量管理（4条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
-<tr><td><span class="term-name">理化测试</span></td><td></td><td><span class="term-defn">运用物理、化学的检测方法及仪器设备，对服装物料、半成品及成品的物理性能、化学特性、安全指标进行系统性检测，核心目的是验证服装是否符合国家标准、行业标准或客户要求，保障产品质量、安全性与耐用性。</span></td><td>质量检测核心手段；覆盖物料/半成品/成品</td></tr>
-<tr><td><span class="term-name">验货报告</span></td><td></td><td><span class="term-defn">由我方及外协加工供应商双方质量岗位完成来料检验后出具的检验结果文件，用于明确物料质量判定结论。</span></td><td>双方质量岗位共同出具；物料质量判定依据</td></tr>
+<tr><td><span class="term-name">国家标准 国标，GB</span></td><td></td><td>由国家标准化管理委员会（SAC）批准发布，全国统一适用的技术、管理及工作要求标准，具有权威性和通用性，分为强制性与推荐性两类。</td><td>标准优先级最高；SAC批准发布；分强制性/推荐性</td></tr>
+<tr><td><span class="term-name">企业标准 企标，Q</span></td><td></td><td>企业自主制定的内部管理及产品要求标准，需备案且要求不低于国标/行标，可制定差异化高阶要求，体现品牌个性化、高品质要求（如面料成分、功能性等专项要求）。采购时需将企标纳入合同，作为研发、生产及验收核心依据。示例：《Q 3101TWN 012-2024 时尚羽绒服饰》。</td><td>企业自主制定需备案；要求≥国标/行标；体现品牌差异化</td></tr>
+<tr><td><span class="term-name">理化测试</span></td><td></td><td>运用物理、化学的检测方法及仪器设备，对服装物料、半成品及成品的物理性能、化学特性、安全指标进行系统性检测，核心目的是验证服装是否符合国家标准、行业标准或客户要求，保障产品质量、安全性与耐用性。</td><td>质量检测核心手段；覆盖物料/半成品/成品</td></tr>
+<tr><td><span class="term-name">验货报告</span></td><td></td><td>由我方及外协加工供应商双方质量岗位完成来料检验后出具的检验结果文件，用于明确物料质量判定结论。</td><td>双方质量岗位共同出具；物料质量判定依据</td></tr>
 </tbody></table></div>
 </div>
-<input type="checkbox" class="cat1-toggle" id="cat1_6" >
-<label class="cat1-label" for="cat1_6"><span>成本管理</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat1-toggle" id="c1_6" >
+<label class="cat1-label" for="c1_6"><span>成本管理</span><span class="arrow">▶</span></label>
 <div class="cat1-content">
-<input type="checkbox" class="cat2-toggle" id="cat2_6_8735" checked>
-<label class="cat2-label" for="cat2_6_8735"><span>成本管理（1条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_6_3116" checked>
+<label class="cat2-label" for="c2_6_3116"><span>成本管理（1条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
 <tr><td><span class="term-name">目标成本</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_6_7741" checked>
-<label class="cat2-label" for="cat2_6_7741"><span>价格管理（2条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_6_2925" checked>
+<label class="cat2-label" for="c2_6_2925"><span>价格管理（2条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
-<tr><td><span class="term-name">物料报价单</span></td><td></td><td><span class="term-defn">供应商按照采购方物料采购需求及技术参数出具的报价书面单据。</span></td><td>供应商报价环节</td></tr>
+<tr><td><span class="term-name">物料报价单</span></td><td></td><td>供应商按照采购方物料采购需求及技术参数出具的报价书面单据。</td><td>供应商报价环节</td></tr>
 <tr><td><span class="term-name">锁价管理</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
 </tbody></table></div>
-<input type="checkbox" class="cat2-toggle" id="cat2_6_1237" checked>
-<label class="cat2-label" for="cat2_6_1237"><span>成本分析（1条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_6_7258" checked>
+<label class="cat2-label" for="c2_6_7258"><span>降本管理（1条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
-<tr><td><span class="term-name">市场趋势报告</span></td><td></td><td><span class="term-defn">由供应链中心成本管理部定期分享发布，结合各类生产常用物料市场行情波动情况完成行情动态追踪与数据分析，用于支撑采购环节议价谈判、集采物料锁价等业务工作的专项分析文件。</span></td><td>成本管理部定期输出；支撑议价谈判与集采锁价决策</td></tr>
+<tr><td><span class="term-name">集采</span></td><td></td><td>由集团统一组织采购、统一定价并签订框架协议，可在多品牌、多系列共享使用的标准化物料。以毛纱、羽绒、胆里布、拉链、包装袋等用量规模庞大的大宗通用物料为主，配套开展期货模式管控。</td><td>集团统采统价+框架协议；多品牌共享；期货模式管控；典型品类（毛纱/羽绒/胆里布/拉链/包装袋）</td></tr>
+</tbody></table></div>
+<input type="checkbox" class="cat2-toggle" id="c2_6_5455" checked>
+<label class="cat2-label" for="c2_6_5455"><span>成本分析（1条）</span><span class="arrow">▶</span></label>
+<div class="cat2-content">
+<table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
+<tr><td><span class="term-name">市场趋势报告</span></td><td></td><td>由供应链中心成本管理部定期分享发布，结合各类生产常用物料市场行情波动情况完成行情动态追踪与数据分析，用于支撑采购环节议价谈判、集采物料锁价等业务工作的专项分析文件。</td><td>成本管理部定期输出；支撑议价谈判与集采锁价决策</td></tr>
 </tbody></table></div>
 </div>
-<input type="checkbox" class="cat1-toggle" id="cat1_7" >
-<label class="cat1-label" for="cat1_7"><span>系统与数据管理</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat1-toggle" id="c1_7" >
+<label class="cat1-label" for="c1_7"><span>系统与数据管理</span><span class="arrow">▶</span></label>
 <div class="cat1-content">
-<input type="checkbox" class="cat2-toggle" id="cat2_7_7651" checked>
-<label class="cat2-label" for="cat2_7_7651"><span>数字化应用（1条）</span><span class="arrow">▶</span></label>
+<input type="checkbox" class="cat2-toggle" id="c2_7_6639" checked>
+<label class="cat2-label" for="c2_7_6639"><span>业务系统（3条）</span><span class="arrow">▶</span></label>
+<div class="cat2-content">
+<table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
+<tr><td><span class="term-name">SAP SAP ERP（Enterprise Resource Planning，企业资源计划）</span></td><td></td><td>SAP是提供ERP的厂商；企业使用的SAP系统即SAP ERP软件，是落地ERP管理理念的核心数字化平台，覆盖财务、采购、库存、生产、成本核算全链路，统一归集企业业务数据、标准化管控全流程，打通采购、生产、财务一体化运营，为供应链各业务环节提供统一数据底座。</td><td>核心数字化平台；覆盖财务/采购/库存/生产/成本全链路；统一数据底座</td></tr>
+<tr><td><span class="term-name">SRM Supplier Relationship Management（供应商关系管理系统）</span></td><td>Supplier Relationship Management</td><td>连接品牌方与上下游供应商的协同数字化平台，覆盖供应商全生命周期管理、采购订单协同、发货收货、对账、绩效评估等业务，实现供需双方业务流程在线化、数据透明化，提升供需协同效率。</td><td>供应商协同数字化平台；覆盖供应商全生命周期+订单协同+收发货+对账+绩效评估</td></tr>
+<tr><td><span class="term-name">WMS Warehouse Management System（仓储管理系统）</span></td><td>Warehouse Management System</td><td>仓库作业数字化管理平台，管控产品出入库、库位管理等仓储业务，由物流管理中心主力使用，系统与SAP、SRM、伯俊系统数据互通，实现库存精准管控。</td><td>仓库作业管理平台；物流管理中心主力使用；与SAP/SRM/伯俊数据互通</td></tr>
+</tbody></table></div>
+<input type="checkbox" class="cat2-toggle" id="c2_7_4469" checked>
+<label class="cat2-label" for="c2_7_4469"><span>数字化应用（1条）</span><span class="arrow">▶</span></label>
 <div class="cat2-content">
 <table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
 <tr><td><span class="term-name">AI应用</span></td><td></td><td><span class="term-empty">待补充</span></td><td><span class="term-empty">待补充</span></td></tr>
+</tbody></table></div>
+</div>
+<input type="checkbox" class="cat1-toggle" id="c1_8" >
+<label class="cat1-label pending-cat" for="c1_8"><span>待分配分类术语<span class="pending-tag">待分配</span></span><span class="arrow">▶</span></label>
+<div class="cat1-content">
+<input type="checkbox" class="cat2-toggle" id="c2_8_0" checked>
+<label class="cat2-label" for="c2_8_0"><span>（24条）</span><span class="arrow">▶</span></label>
+<div class="cat2-content">
+<table><thead><tr><th style="width:15%">术语</th><th style="width:12%">英文简称</th><th style="width:50%">术语定义</th><th style="width:23%">业务应用场景</th></tr></thead><tbody>
+<tr><td><span class="term-name">流程分委会 集团流程建设管理委员会下设专项二级议事与管理组织</span></td><td></td><td>集团流程建设管理委员会（流程MC）下设的专项二级议事与管理组织，按研产、零售、财经、人力、SIP等核心业务领域分条线单独设立，主要负责对应业务板块内流程体系搭建、流程修订优化、流程执行监督、流程相关事项审议决策。</td><td>MC=Management Committee；按业务条线分设（研产/零售/财经/人力/SIP等）</td></tr>
+<tr><td><span class="term-name">采委会 集团采购委员会</span></td><td></td><td>经集团EMT管理层审议任命设立的集团级采购价格专项决策组织。主要针对超授权额度、战略关键物料、价格偏差超管控阈值的定价事项开展集体评审与终审决策，对大额及高风险采购定价行使最终审批权，出具正式会议决议后方可生效物料采购价格。用于规避单一岗位审批风险、强化集团采购成本顶层管控。</td><td>EMT=执行管理团队；采委会决议为采购价格最终审批环节</td></tr>
+<tr><td><span class="term-name">风险评估</span></td><td></td><td>在评价会环节，围绕产品质量、成本、交期、创新（QCDI）多维度排查潜在隐患，研判风险影响程度，梳理潜在供货与生产隐患；结果仅形成供应链内部留存文档，不对外同步至产品线，用于指导长周期物料提前采购工作。</td><td>评价会环节同步开展；QCDI四维排查；内部留存不对外；指导长周期物料提前备货</td></tr>
+<tr><td><span class="term-name">码单</span></td><td></td><td>供应商系统发货后生成的随货明细清单，随物料直发加工厂，用于实物清点核对、来料检验校验、系统收货归档及业务异常溯源，是服装物料收发货业务的核心随货凭证。</td><td>随货明细清单；实物清点/检验/收货/溯源核心凭证</td></tr>
+<tr><td><span class="term-name">直发 物料直发</span></td><td></td><td>指面料、辅料、原材料等上游物料供应商，不经过我司自有仓库（如江宁仓）中转入库，直接将货品配送发往外协加工供应商（成衣供应商、配件供应商等），完成货物流转的供货模式。</td><td>跳过自有仓库中转；供应商直送外协加工供应商；典型中转仓（江宁仓）</td></tr>
+<tr><td><span class="term-name">非规划物料</span></td><td></td><td>未纳入集团季度规划物料池，在产品开发、大货订单阶段因设计调整或临时需求产生的物料，包括：①逆向开发类、②找类似替代类、③常规调样类，后续可投产进入大货订单的常规物料。</td><td>未纳入季度规划池；开发/订单阶段临时产生；三类来源（逆向开发/替代/调样）</td></tr>
+<tr><td><span class="term-name">框架合同</span></td><td></td><td>我司与长期合作供应商签署的年度合作总协议，仅约定双方年度合作通用规则、合作品类、定价机制、结算方式、质量标准、履约权责、年度合作约束等通用条款，不锁定单次具体采购数量、交期。物料类框架合同分为面料、辅料、原材料三类。</td><td>年度总协议；不锁单次数量/交期；面料/辅料/原材料三类</td></tr>
+<tr><td><span class="term-name">制式订单合同</span></td><td></td><td>我司为重复开展同类交易预先统一拟定固定版式完整条款，经法务经理审核通过并完成统一备案，交易双方仅可填写标的、数量、金额、交期等空白信息，核心通用条款不得进行实质性修改的标准化合同文本。</td><td>标准化合同；法务前置审核备案；仅可填写空白项</td></tr>
+<tr><td><span class="term-name">非制式订单合同</span></td><td></td><td>无统一备案标准模板，未经过法务前置统一审核备案，全部条款由交易双方结合单次业务实际需求一对一磋商、逐条沟通后定制拟定，可按需增删、调整全部约定内容的个性化合同。</td><td>个性化合同；逐条磋商定制；无法务前置备案</td></tr>
+<tr><td><span class="term-name">长周期物料</span></td><td></td><td>受上游产能、原料采收季节、跨境运输、定织定染等定制工艺约束，从下单、原料织造、染整加工直至入库全链路交付周期显著长于现货面料与常规辅料；该类物料可选替代资源少，一旦供货延误极易导致成衣断料、生产排期滞后，需依托销售预测提前锁产能、锁订单，开展专项预判备货管理的核心面料及特殊辅料。</td><td>交付周期显著长于常规；替代资源少；需提前锁产能锁订单备货</td></tr>
+<tr><td><span class="term-name">加工供应商 外协加工供应商</span></td><td></td><td>承接品牌外发生产任务，按照品牌提供的物料、工艺文件、品质标准与交期要求完成加工并交付货品的外部合作厂商。我司合作供方包含成衣缝制、配件加工、绣印花加工、洗水加工等类型，合作模式包括但不限于CMT（Cutting裁剪、Making缝制、Trimming后整）来料加工、ODM（Original Design Manufacturer）设计代工。</td><td>CMT=来料加工；ODM=设计代工；类型含成衣/配件/绣印花/洗水</td></tr>
+<tr><td><span class="term-name">评价会</span></td><td></td><td>由产品事业部分产品线发起召开，结合市场与行业流行趋势，针对评价会样衣的版型工艺、款式设计、配色方案、单品成本等开展多维度综合评审，完成款式筛选与初步立项确认的专项评审会议。</td><td>产品事业部发起；多维度评审（版型/款式/配色/成本）；款式筛选+初步立项</td></tr>
+<tr><td><span class="term-name">季度供应规划（物料）</span></td><td></td><td>由供应链中心供应商管理部按产品季别共享发布，按品类、产品线梳理形成官方供应商清单，清晰划定本季度可开展面料开发、询价议价、下单签约等业务合作的供应商范围，是各物料采购相关业务执行的依据之一。</td><td>按季别发布；供应商管理部编制；物料采购业务合规依据</td></tr>
+<tr><td><span class="term-name">季度供应规划（加工）</span></td><td></td><td>由供应链中心供应商管理部按产品季别编制发布，按品类、产品线搭建并公示净加工类供应商资源池，明确本季度可开展打样开发、加工询价议价、生产加工签约合作的加工供应商范围，是各加工业务筛选合作供方、开展外协加工业务的合规执行依据。</td><td>按季别发布；供应商管理部编制；外协加工业务合规依据</td></tr>
+<tr><td><span class="term-name">价格偏差比例</span></td><td></td><td>用于判定物料定价是否触发二次议价、升级审批、采委会终审的核心量化阈值指标。以成本管理部输出的标准目标成本作为对标基准，正向偏差代表报价高于内控目标价，负向偏差代表报价低于内控目标价。</td><td>定价审批决策依据</td></tr>
+<tr><td><span class="term-name">季度目标成本率</span></td><td></td><td>结合季度整体订货额度、产品品类结构、历史成本数据及市场行情等多项核心经营数据，在季度期初完成前置测算工作；测算结果与各事业部、对应产品线充分对齐沟通并正式确认锁定，以此作为本季度全周期内，指导生产采购、订单下单、流程审批等环节，开展产品成本事前规划、事中监督管控与事后复盘考核的标准化管控指标。</td><td>季度期初测算锁定；事前规划-事中管控-事后考核的全周期成本基准</td></tr>
+<tr><td><span class="term-name">损耗基准</span></td><td></td><td>集团针对面料、辅料等物料采购环节及外协加工生产环节设定的标准化允许损耗比例阈值。依托历史生产数据、工艺技术参数与成本测算核定生成，经审批后录入SAP系统固化生效，作为采购下单量核算、生产投料管控、成本账务核算、损耗异常稽核判定的官方量化依据，用于界定合理损耗边界、压降非必要损耗，实现供应链全链路损耗精细化管控。</td><td>SAP系统固化生效；覆盖采购/生产/账务/稽核全链路</td></tr>
+<tr><td><span class="term-name">物料规格书</span></td><td></td><td>详细规定产品所需各类物料（原材料、辅料、包装材料等）的技术规格、质量要求、检验标准、验收方法的技术性文件，是采购、检验、生产的核心依据。</td><td>采购/检验/生产核心依据文件</td></tr>
+<tr><td><span class="term-name">第三方测试机构</span></td><td></td><td>经国家认证授权，独立于买卖双方（我司与供应商方）之外，具备专业测试能力和资质的机构，负责对产品进行质量检测、安全评估、性能测试等，确保产品符合相关标准和法规要求。</td><td>独立于买卖双方；需具备国家认证资质</td></tr>
+<tr><td><span class="term-name">行业标准 行标，如FZ/T、QB/T</span></td><td></td><td>由行业主管部门/协会发布，行业内统一适用的技术标准，是国标的补充细化，要求不低于国标。服装行业常见为纺织行业标准（FZ/T）、轻工行业标准（QB/T）。采购过程中需结合品类明确行标，作为供应商筛选及验收依据。</td><td>行业主管部门/协会发布；要求≥国标；采购筛选验收依据</td></tr>
+<tr><td><span class="term-name">理化测试报告</span></td><td></td><td>按照中国国家标准、行业标准或企业标准进行的理化性能测试所出具的报告，用于评估服装产品的物理和化学性能是否符合相关标准。</td><td>质量合规证明文件</td></tr>
+<tr><td><span class="term-name">限值</span></td><td></td><td>依据我司送第三方检测机构送检时注明的检测项目结果值，判断服装安全及质量指标是否合规而设定的量化允许边界（如甲醛含量、pH值等安全及质量指标），在量化允许边界内是采购产品合规的强制性底线要求。</td><td>合规判定边界；强制性底线要求</td></tr>
+<tr><td><span class="term-name">送检样 理化测试样</span></td><td></td><td>从面料/成衣大货中抽取，专门用于第三方或企业内部实验室开展物理性能与化学安全指标检测的代表性样品。</td><td>大货抽样；代表整批质量水平</td></tr>
+<tr><td><span class="term-name">OA Office Automation（办公自动化系统）</span></td><td></td><td>企业内部统一协同办公数字化平台，聚焦内部跨部门行政、业务审批流转，覆盖费用报销、合同审批、公文通知、流程督办与归档、人事行政流程等通用办公场景，系统已与我司多个系统（如SAP系统）完成部分数据联动。</td><td>内部协同办公平台；跨部门审批流转；已与SAP等系统数据联动</td></tr>
 </tbody></table></div>
 </div>
 
