@@ -12,10 +12,7 @@ body {
     min-height: 100vh;
     padding: 20px;
 }
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
+.container { max-width: 1100px; margin: 0 auto; }
 .header {
     background: rgba(255,255,255,0.95);
     border-radius: 16px;
@@ -24,33 +21,13 @@ body {
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     text-align: center;
 }
-.header h1 {
-    font-size: 28px;
-    color: #1a1a2e;
-    margin-bottom: 8px;
-    letter-spacing: 2px;
-}
-.header .subtitle {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 4px;
-}
-.header .stats {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-top: 16px;
-    flex-wrap: wrap;
-}
+.header h1 { font-size: 28px; color: #1a1a2e; margin-bottom: 8px; letter-spacing: 2px; }
+.header .subtitle { font-size: 14px; color: #666; }
+.header .stats { display: flex; justify-content: center; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
 .header .stat-item {
     background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #fff;
-    padding: 6px 18px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
+    color: #fff; padding: 6px 18px; border-radius: 20px; font-size: 13px; font-weight: 500;
 }
-/* 搜索框 */
 .search-bar {
     background: rgba(255,255,255,0.95);
     border-radius: 12px;
@@ -64,198 +41,63 @@ body {
     top: 10px;
     z-index: 100;
 }
-.search-bar .icon {
-    font-size: 20px;
-    color: #667eea;
-    flex-shrink: 0;
-}
+.search-bar .icon { font-size: 20px; color: #667eea; flex-shrink: 0; }
 .search-bar input {
-    flex: 1;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 10px 16px;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.2s;
+    flex: 1; border: 2px solid #e0e0e0; border-radius: 8px;
+    padding: 10px 16px; font-size: 15px; outline: none; transition: border-color 0.2s;
 }
-.search-bar input:focus {
-    border-color: #667eea;
-}
-.search-bar input::placeholder {
-    color: #aaa;
-}
-.search-bar .btn-group {
-    display: flex;
-    gap: 8px;
-    flex-shrink: 0;
-}
+.search-bar input:focus { border-color: #667eea; }
+.search-bar input::placeholder { color: #aaa; }
+.search-bar .btn-group { display: flex; gap: 8px; flex-shrink: 0; }
 .search-bar .btn {
-    padding: 8px 16px;
-    border: 2px solid #667eea;
-    border-radius: 8px;
-    background: #fff;
-    color: #667eea;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
+    padding: 8px 16px; border: 2px solid #667eea; border-radius: 8px;
+    background: #fff; color: #667eea; font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; white-space: nowrap;
 }
-.search-bar .btn:hover {
-    background: #667eea;
-    color: #fff;
-}
-.search-bar .result-count {
-    font-size: 13px;
-    color: #888;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-/* 分类卡片 */
+.search-bar .btn:hover { background: #667eea; color: #fff; }
+.search-bar .result-count { font-size: 13px; color: #888; white-space: nowrap; flex-shrink: 0; }
 .cat1-card {
-    background: rgba(255,255,255,0.95);
-    border-radius: 14px;
-    margin-bottom: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    overflow: hidden;
-    transition: box-shadow 0.2s;
+    background: rgba(255,255,255,0.95); border-radius: 14px;
+    margin-bottom: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden; transition: box-shadow 0.2s;
 }
-.cat1-card:hover {
-    box-shadow: 0 6px 28px rgba(0,0,0,0.12);
-}
+.cat1-card:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.12); }
 .cat1-header {
     background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #fff;
-    padding: 16px 24px;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    user-select: none;
+    color: #fff; padding: 16px 24px; font-size: 18px; font-weight: 700;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none;
 }
-.cat1-header .arrow {
-    transition: transform 0.3s;
-    font-size: 14px;
-}
-.cat1-header.collapsed .arrow {
-    transform: rotate(-90deg);
-}
-.cat1-body {
-    padding: 0;
-    max-height: 5000px;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s;
-}
-.cat1-body.collapsed {
-    max-height: 0;
-    padding: 0;
-}
-/* 待分配分类 - 特殊样式 */
-.cat1-card.pending .cat1-header {
-    background: linear-gradient(135deg, #f093fb, #f5576c);
-}
-/* 二级分类 */
-.cat2-section {
-    border-bottom: 1px solid #f0f0f0;
-}
-.cat2-section:last-child {
-    border-bottom: none;
-}
+.cat1-header .arrow { transition: transform 0.3s; font-size: 14px; }
+.cat1-header.collapsed .arrow { transform: rotate(-90deg); }
+.cat1-body { padding: 0; max-height: 5000px; overflow: hidden; transition: max-height 0.4s ease; }
+.cat1-body.collapsed { max-height: 0; }
+.cat2-section { border-bottom: 1px solid #f0f0f0; }
+.cat2-section:last-child { border-bottom: none; }
 .cat2-header {
-    background: #f8f9ff;
-    padding: 12px 24px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #4a4a6a;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    user-select: none;
-    border-left: 4px solid #667eea;
+    background: #f8f9ff; padding: 12px 24px; font-size: 15px; font-weight: 600;
+    color: #4a4a6a; cursor: pointer; display: flex; justify-content: space-between;
+    align-items: center; user-select: none; border-left: 4px solid #667eea;
 }
-.cat2-header .arrow {
-    transition: transform 0.3s;
-    font-size: 12px;
-    color: #999;
-}
-.cat2-header.collapsed .arrow {
-    transform: rotate(-90deg);
-}
-.cat2-body {
-    max-height: 3000px;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-.cat2-body.collapsed {
-    max-height: 0;
-}
-/* 术语表格 */
-.term-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+.cat2-header .arrow { transition: transform 0.3s; font-size: 12px; color: #999; }
+.cat2-header.collapsed .arrow { transform: rotate(-90deg); }
+.cat2-body { max-height: 3000px; overflow: hidden; transition: max-height 0.3s ease; }
+.cat2-body.collapsed { max-height: 0; }
+.term-table { width: 100%; border-collapse: collapse; }
 .term-table th {
-    background: #f0f2ff;
-    padding: 10px 16px;
-    text-align: left;
-    font-size: 13px;
-    font-weight: 600;
-    color: #555;
-    border-bottom: 2px solid #e0e4ff;
+    background: #f0f2ff; padding: 10px 16px; text-align: left;
+    font-size: 13px; font-weight: 600; color: #555; border-bottom: 2px solid #e0e4ff;
 }
 .term-table td {
-    padding: 12px 16px;
-    font-size: 14px;
-    color: #333;
-    border-bottom: 1px solid #f0f0f0;
-    vertical-align: top;
-    line-height: 1.6;
+    padding: 12px 16px; font-size: 14px; color: #333;
+    border-bottom: 1px solid #f0f0f0; vertical-align: top; line-height: 1.6;
 }
-.term-table tr:last-child td {
-    border-bottom: none;
-}
-.term-table tr:hover td {
-    background: #fafbff;
-}
-.term-name {
-    font-weight: 700;
-    color: #1a1a2e;
-}
-.term-full {
-    font-size: 12px;
-    color: #888;
-    margin-top: 2px;
-}
-.term-def-empty {
-    color: #bbb;
-    font-style: italic;
-}
-/* 搜索高亮 */
-.highlight {
-    background: #fff3cd;
-    padding: 1px 3px;
-    border-radius: 3px;
-}
-/* 隐藏不匹配的行 */
-.term-row.hidden {
-    display: none;
-}
-.cat2-section.hidden {
-    display: none;
-}
-.cat1-card.hidden {
-    display: none;
-}
-/* footer */
-.footer {
-    text-align: center;
-    padding: 20px;
-    color: rgba(255,255,255,0.7);
-    font-size: 12px;
-}
+.term-table tr:last-child td { border-bottom: none; }
+.term-table tr:hover td { background: #fafbff; }
+.term-name { font-weight: 700; color: #1a1a2e; }
+.term-def-empty { color: #bbb; font-style: italic; }
+.highlight { background: #fff3cd; padding: 1px 3px; border-radius: 3px; }
+.term-row.hidden, .cat2-section.hidden, .cat1-card.hidden { display: none; }
+.footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.7); font-size: 12px; }
 @media (max-width: 768px) {
     body { padding: 10px; }
     .header { padding: 20px; }
@@ -272,9 +114,8 @@ body {
         <h1>锦泓集团供应链中心术语库</h1>
         <div class="subtitle">更新日期：2026-07-17</div>
         <div class="stats">
-            <span class="stat-item">📚 68 条术语</span>
+            <span class="stat-item">📚 51 条术语</span>
             <span class="stat-item">📂 8 个一级分类</span>
-            <span class="stat-item">⏳ 17 条待分配</span>
         </div>
     </div>
 
@@ -297,7 +138,7 @@ body {
         <div class="cat1-body" id="cat1_1_body">
             <div class="cat2-section" id="cat1_1__main_">
                 <div class="cat2-header" onclick="toggleCat2('cat1_1__main_')">
-                    <span>未分类（4条）</span>
+                    <span>组织架构类（4条）</span>
                     <span class="arrow">▼</span>
                 </div>
                 <div class="cat2-body" id="cat1_1__main__body">
@@ -662,10 +503,10 @@ body {
                                 <td>由供应链中心供应商管理部按产品季别编制发布，按品类、产品线搭建并公示净加工类供应商资源池，明确本季度可开展打样开发、加工询价议价、生产加工签约合作的加工供应商范围，是各加工业务筛选合作供方、开展外协加工业务的合规执行依据。</td>
                                 <td>按季别发布；供应商管理部编制；外协加工业务合规依据</td>
                             </tr>
-                            <tr class="term-row" data-search="产能规划  由供应链中心/供应商管理部主导、每半年度开展的供应链前置统筹工作，结合产品季别生产需求及外协加工供应商绩效、分层分级结果，测算各供应商品类别可承载产能，合理分配订单配额、管控生产负荷，提前排查产能瓶颈、储备备选资源，优化产能与订单分配，旨在确保订单品质、成本、交期（QCD）可控落地。 ">
+                            <tr class="term-row" data-search="产能规划   ">
                                 <td><span class="term-name">产能规划</span></td>
                                 <td><span class="term-def-empty">—</span></td>
-                                <td>由供应链中心/供应商管理部主导、每半年度开展的供应链前置统筹工作，结合产品季别生产需求及外协加工供应商绩效、分层分级结果，测算各供应商品类别可承载产能，合理分配订单配额、管控生产负荷，提前排查产能瓶颈、储备备选资源，优化产能与订单分配，旨在确保订单品质、成本、交期（QCD）可控落地。</td>
+                                <td><span class="term-def-empty">待补充</span></td>
                                 <td><span class="term-def-empty">—</span></td>
                             </tr>
                         </tbody>
@@ -808,7 +649,7 @@ body {
         <div class="cat1-body" id="cat1_6_body">
             <div class="cat2-section" id="cat1_6__main_">
                 <div class="cat2-header" onclick="toggleCat2('cat1_6__main_')">
-                    <span>未分类（1条）</span>
+                    <span>供应链运营（1条）</span>
                     <span class="arrow">▼</span>
                 </div>
                 <div class="cat2-body" id="cat1_6__main__body">
@@ -1004,272 +845,67 @@ body {
             </div>
         </div>
     </div>
-    <div class="cat1-card pending" id="cat1_9">
-        <div class="cat1-header" onclick="toggleCat1('cat1_9')">
-            <span>⏳ 待分配分类术语（17条）</span>
-            <span class="arrow">▼</span>
-        </div>
-        <div class="cat1-body" id="cat1_9_body">
-            <div class="cat2-section" id="cat1_9__main_">
-                <div class="cat2-header" onclick="toggleCat2('cat1_9__main_')">
-                    <span>未分类（17条）</span>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="cat2-body" id="cat1_9__main__body">
-                    <table class="term-table">
-                        <thead>
-                            <tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr class="term-row" data-search="项目Charter   ">
-                                <td><span class="term-name">项目Charter</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="流程治理   ">
-                                <td><span class="term-name">流程治理</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="K1 HBC打开   ">
-                                <td><span class="term-name">K1 HBC打开</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="K2主品类规划   ">
-                                <td><span class="term-name">K2主品类规划</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="K3主品类挂样   ">
-                                <td><span class="term-name">K3主品类挂样</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="K4面料选择   ">
-                                <td><span class="term-name">K4面料选择</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="K5顾客验证   ">
-                                <td><span class="term-name">K5顾客验证</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="面料资源池   ">
-                                <td><span class="term-name">面料资源池</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="CMT   ">
-                                <td><span class="term-name">CMT</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="ODM   ">
-                                <td><span class="term-name">ODM</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="返单   ">
-                                <td><span class="term-name">返单</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="追单   ">
-                                <td><span class="term-name">追单</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="工艺标准   ">
-                                <td><span class="term-name">工艺标准</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="技术资料   ">
-                                <td><span class="term-name">技术资料</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="目标成本   ">
-                                <td><span class="term-name">目标成本</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="锁价管理   ">
-                                <td><span class="term-name">锁价管理</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                            <tr class="term-row" data-search="AI应用   ">
-                                <td><span class="term-name">AI应用</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                                <td><span class="term-def-empty">待补充</span></td>
-                                <td><span class="term-def-empty">—</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
     </div>
-    </div>
-
-    <div class="footer">
-        锦泓集团供应链中心 · 术语库 · 更新于 2026-07-17 · 共 68 条术语
-    </div>
+    <div class="footer">锦泓集团供应链中心 · 术语库 · 更新于 2026-07-17 · 共 51 条术语</div>
 </div>
-
 <script>
 function toggleCat1(id) {
-    var body = document.getElementById(id + '_body');
-    var header = body.previousElementSibling;
-    body.classList.toggle('collapsed');
-    header.classList.toggle('collapsed');
+    document.getElementById(id+'_body').classList.toggle('collapsed');
+    document.getElementById(id+'_body').previousElementSibling.classList.toggle('collapsed');
 }
 function toggleCat2(id) {
-    var body = document.getElementById(id + '_body');
-    var header = body.previousElementSibling;
-    body.classList.toggle('collapsed');
-    header.classList.toggle('collapsed');
+    document.getElementById(id+'_body').classList.toggle('collapsed');
+    document.getElementById(id+'_body').previousElementSibling.classList.toggle('collapsed');
 }
 function expandAll() {
-    document.querySelectorAll('.cat1-body, .cat2-body').forEach(function(el) {
-        el.classList.remove('collapsed');
-    });
-    document.querySelectorAll('.cat1-header, .cat2-header').forEach(function(el) {
-        el.classList.remove('collapsed');
-    });
+    document.querySelectorAll('.cat1-body,.cat2-body').forEach(function(e){e.classList.remove('collapsed')});
+    document.querySelectorAll('.cat1-header,.cat2-header').forEach(function(e){e.classList.remove('collapsed')});
 }
 function collapseAll() {
-    document.querySelectorAll('.cat1-body, .cat2-body').forEach(function(el) {
-        el.classList.add('collapsed');
-    });
-    document.querySelectorAll('.cat1-header, .cat2-header').forEach(function(el) {
-        el.classList.add('collapsed');
-    });
+    document.querySelectorAll('.cat1-body,.cat2-body').forEach(function(e){e.classList.add('collapsed')});
+    document.querySelectorAll('.cat1-header,.cat2-header').forEach(function(e){e.classList.add('collapsed')});
 }
 function doSearch() {
-    var query = document.getElementById('searchInput').value.trim().toLowerCase();
+    var q = document.getElementById('searchInput').value.trim().toLowerCase();
     var rows = document.querySelectorAll('.term-row');
-    var visibleCount = 0;
-    var totalCount = rows.length;
-
-    // 先清除高亮
-    rows.forEach(function(row) {
-        var cells = row.querySelectorAll('td');
-        cells.forEach(function(cell) {
-            // 移除高亮但保留原文
-            var spans = cell.querySelectorAll('.highlight');
-            spans.forEach(function(s) {
-                s.outerHTML = s.textContent;
-            });
-        });
+    var vc = 0, tc = rows.length;
+    rows.forEach(function(r) {
+        r.querySelectorAll('.highlight').forEach(function(s){s.outerHTML=s.textContent});
     });
-
-    if (!query) {
-        // 显示全部
-        rows.forEach(function(r) { r.classList.remove('hidden'); });
-        document.querySelectorAll('.cat2-section, .cat1-card').forEach(function(el) {
-            el.classList.remove('hidden');
-        });
-        document.getElementById('resultCount').textContent = '';
+    if (!q) {
+        rows.forEach(function(r){r.classList.remove('hidden')});
+        document.querySelectorAll('.cat2-section,.cat1-card').forEach(function(e){e.classList.remove('hidden')});
+        document.getElementById('resultCount').textContent='';
         return;
     }
-
-    // 搜索过滤
-    rows.forEach(function(row) {
-        var text = row.getAttribute('data-search').toLowerCase();
-        if (text.indexOf(query) >= 0) {
-            row.classList.remove('hidden');
-            visibleCount++;
-            // 高亮匹配
-            var cells = row.querySelectorAll('td');
-            cells.forEach(function(cell) {
-                highlightText(cell, query);
-            });
-        } else {
-            row.classList.add('hidden');
-        }
+    rows.forEach(function(r) {
+        if (r.getAttribute('data-search').toLowerCase().indexOf(q)>=0) {
+            r.classList.remove('hidden'); vc++;
+            r.querySelectorAll('td').forEach(function(c){hlText(c,q)});
+        } else { r.classList.add('hidden'); }
     });
-
-    // 隐藏空的二级分类和一级分类
-    document.querySelectorAll('.cat2-section').forEach(function(sec) {
-        var visibleRows = sec.querySelectorAll('.term-row:not(.hidden)');
-        if (visibleRows.length === 0) {
-            sec.classList.add('hidden');
-        } else {
-            sec.classList.remove('hidden');
-        }
+    document.querySelectorAll('.cat2-section').forEach(function(s){
+        s.classList.toggle('hidden', s.querySelectorAll('.term-row:not(.hidden)').length===0);
     });
-    document.querySelectorAll('.cat1-card').forEach(function(card) {
-        var visibleSections = card.querySelectorAll('.cat2-section:not(.hidden)');
-        if (visibleSections.length === 0) {
-            card.classList.add('hidden');
-        } else {
-            card.classList.remove('hidden');
-        }
+    document.querySelectorAll('.cat1-card').forEach(function(c){
+        c.classList.toggle('hidden', c.querySelectorAll('.cat2-section:not(.hidden)').length===0);
     });
-
-    // 展开有结果的分类
-    document.querySelectorAll('.cat1-card:not(.hidden)').forEach(function(card) {
-        var body = card.querySelector('.cat1-body');
-        var header = card.querySelector('.cat1-header');
-        if (body) body.classList.remove('collapsed');
-        if (header) header.classList.remove('collapsed');
-    });
-    document.querySelectorAll('.cat2-section:not(.hidden)').forEach(function(sec) {
-        var body = sec.querySelector('.cat2-body');
-        var header = sec.querySelector('.cat2-header');
-        if (body) body.classList.remove('collapsed');
-        if (header) header.classList.remove('collapsed');
-    });
-
-    document.getElementById('resultCount').textContent = visibleCount + ' / ' + totalCount + ' 条';
+    document.querySelectorAll('.cat1-card:not(.hidden) .cat1-body,.cat1-card:not(.hidden) .cat2-body').forEach(function(e){e.classList.remove('collapsed')});
+    document.querySelectorAll('.cat1-card:not(.hidden) .cat1-header,.cat1-card:not(.hidden) .cat2-header').forEach(function(e){e.classList.remove('collapsed')});
+    document.getElementById('resultCount').textContent = vc+' / '+tc+' 条';
 }
-
-function highlightText(element, query) {
-    var walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
-    var textNodes = [];
-    while (walker.nextNode()) textNodes.push(walker.currentNode);
-
-    textNodes.forEach(function(node) {
-        var text = node.textContent;
-        var lower = text.toLowerCase();
-        var idx = lower.indexOf(query);
-        if (idx < 0) return;
-
-        var before = text.substring(0, idx);
-        var match = text.substring(idx, idx + query.length);
-        var after = text.substring(idx + query.length);
-
-        var span = document.createElement('span');
-        span.innerHTML = escapeHtml(before) + '<span class="highlight">' + escapeHtml(match) + '</span>' + escapeHtml(after);
-        node.parentNode.replaceChild(span, node);
+function hlText(el,q) {
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false),ns=[];
+    while(w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(n){
+        var t=n.textContent,lo=t.toLowerCase(),i=lo.indexOf(q);
+        if(i<0)return;
+        var s=document.createElement('span');
+        s.innerHTML=escH(t.substring(0,i))+'<span class="highlight">'+escH(t.substring(i,i+q.length))+'</span>'+escH(t.substring(i+q.length));
+        n.parentNode.replaceChild(s,n);
     });
 }
-
-function escapeHtml(text) {
-    var div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
+function escH(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
 </script>
 </body>
 </html>
