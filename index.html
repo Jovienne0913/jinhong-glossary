@@ -3,129 +3,669 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>锦泓集团供应链中心知识库</title>
+<title>锦泓集团供应链中心术语库</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: linear-gradient(135deg, #f0f7ff 0%, #e6f1fb 50%, #f8fafc 100%);
+/* 供应链知识库 · 术语库统一视觉系统 (UI Designer)
+   主色: 主蓝 #2563eb / 深蓝 #1d4ed8 / 标题蓝 #1e3a8a
+   与门户页、行业洞察、月报统一。其余页样式基准同此。 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #F4F7FC;
     min-height: 100vh;
-    color: #1a202c;
-  }
-  .container { max-width: 1080px; margin: 0 auto; padding: 72px 24px 48px; }
-  .topbar { height: 5px; background: linear-gradient(90deg, #1d4ed8, #378add); }
-  .header { text-align: center; margin-bottom: 48px; }
-  .header h1 {
-    font-size: 34px; font-weight: 700; color: #0c447c;
-    margin-bottom: 12px; letter-spacing: -0.5px;
-  }
-  .header p {
-    font-size: 16px; color: #64748b; max-width: 620px;
-    margin: 0 auto; line-height: 1.7;
-  }
-  .badge {
-    display: inline-block; padding: 5px 14px; background: #e6f1fb;
-    color: #185fa5; border-radius: 20px; font-size: 12px;
-    font-weight: 500; margin-bottom: 18px;
-  }
-  .features {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 22px; margin-bottom: 44px;
-  }
-  .feat {
-    background: #fff; border-radius: 16px; padding: 28px 26px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
-    border: 1px solid #e2e8f0; position: relative; overflow: hidden;
-    transition: transform .3s ease, box-shadow .3s ease;
-  }
-  .feat::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-    background: linear-gradient(90deg, #185fa5, #378add);
-  }
-  .feat:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.08); }
-  .feat-ico { font-size: 32px; margin-bottom: 14px; line-height: 1; }
-  .feat h3 { font-size: 17px; font-weight: 600; color: #0c447c; margin-bottom: 8px; }
-  .feat p { font-size: 13.5px; color: #64748b; line-height: 1.65; }
-  .cta-wrap { text-align: center; }
-  .cta {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 40px; border: none; border-radius: 12px; cursor: pointer;
-    background: linear-gradient(135deg, #1d4ed8, #2563eb); color: #fff;
-    font-size: 17px; font-weight: 600; font-family: inherit;
-    transition: transform .15s ease, box-shadow .15s ease;
-    text-decoration: none;
-  }
-  .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,99,235,.4); }
-  .cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; box-shadow: 0 0 0 5px rgba(37,99,235,.5); }
-  .cta .arrow { font-size: 20px; transition: transform .2s ease; }
-  .cta:hover .arrow { transform: translateX(4px); }
-  .note {
-    margin: 22px auto 0; max-width: 520px; font-size: 13px; color: #94a3b8;
-    line-height: 1.7; text-align: center;
-  }
-  .note b { color: #1d4ed8; }
-  .footer {
-    text-align: center; padding: 40px 0 8px; margin-top: 36px;
-    border-top: 1px solid #e2e8f0;
-  }
-  .footer p { font-size: 12.5px; color: #94a3b8; line-height: 1.8; }
-  @media (max-width:480px){ .container{padding:48px 18px 32px;} .header h1{font-size:27px;} }
+    padding: 0;
+}
+/* 顶部品牌导航 */
+.kb-topbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #E6EDF6;}
+.kb-topbar-in{max-width:1100px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;}
+.kb-brand{display:flex;align-items:center;gap:10px;font-weight:700;color:#0B2E59;font-size:15px;}
+.kb-brand-logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#3B82F6,#14489E);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 8px 20px rgba(37,99,235,.30);}
+.kb-back{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#14489E;background:#EFF4FF;border:1px solid #D6E4FB;border-radius:999px;padding:7px 14px;transition:transform .15s,border-color .15s;}
+.kb-back:hover{border-color:#3B82F6;transform:translateY(-1px);}
+.kb-back .arrow{font-size:15px;line-height:1;}
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* 页眉统一顶饰条 */
+.header {
+    background: rgba(255,255,255,0.95);
+    border-radius: 16px;
+    padding: 32px 40px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+}
+.header::before {
+    content:""; position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg,#3B82F6,#14489E); border-radius:14px 14px 0 0;
+}
+.header h1 { font-size: 28px; color: #0f172a; margin-bottom: 8px; letter-spacing: 2px; }
+.header .subtitle { font-size: 14px; color: #666; }
+.header .stats { display: flex; justify-content: center; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+.header .stat-item {
+    background: linear-gradient(135deg, #2563EB, #14489E);
+    color: #fff; padding: 6px 18px; border-radius: 20px; font-size: 13px; font-weight: 500;
+}
+
+.search-bar {
+    background: rgba(255,255,255,0.95);
+    border-radius: 14px;
+    padding: 16px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(15,23,42,.05), 0 8px 24px rgba(15,23,42,.06);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+}
+.search-bar .icon { font-size: 20px; color: #2563eb; flex-shrink: 0; }
+.search-bar input {
+    flex: 1; border: 2px solid #e0e0e0; border-radius: 8px;
+    padding: 10px 16px; font-size: 15px; outline: none; transition: border-color 0.2s;
+}
+.search-bar input:focus { border-color: #2563eb; }
+.search-bar input::placeholder { color: #aaa; }
+.search-bar .btn-group { display: flex; gap: 8px; flex-shrink: 0; }
+.search-bar .btn {
+    padding: 8px 16px; border: 2px solid #2563eb; border-radius: 8px;
+    background: #fff; color: #2563eb; font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.search-bar .btn:hover { background: #2563eb; color: #fff; }
+.search-bar .result-count { font-size: 13px; color: #888; white-space: nowrap; flex-shrink: 0; }
+
+.cat1-card {
+    background: rgba(255,255,255,0.95); border-radius: 14px;
+    margin-bottom: 16px; box-shadow: 0 1px 3px rgba(15,23,42,.05), 0 8px 24px rgba(15,23,42,.06);
+    overflow: hidden; transition: box-shadow 0.2s;
+}
+.cat1-card:hover { box-shadow: 0 6px 28px rgba(15,23,42,.1); }
+.cat1-header {
+    background: linear-gradient(135deg, #2563EB, #14489E);
+    color: #fff; padding: 16px 24px; font-size: 18px; font-weight: 700;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none;
+}
+.cat1-header .arrow { transition: transform 0.3s; font-size: 14px; }
+.cat1-header.collapsed .arrow { transform: rotate(-90deg); }
+.cat1-body { padding: 0; max-height: 5000px; overflow: hidden; transition: max-height 0.4s ease; }
+.cat1-body.collapsed { max-height: 0; }
+.cat2-section { border-bottom: 1px solid #f0f0f0; }
+.cat2-section:last-child { border-bottom: none; }
+.cat2-header {
+    background: #eff6ff; padding: 12px 24px; font-size: 15px; font-weight: 600;
+    color: #334155; cursor: pointer; display: flex; justify-content: space-between;
+    align-items: center; user-select: none; border-left: 4px solid #2563eb;
+}
+.cat2-header .arrow { transition: transform 0.3s; font-size: 12px; color: #999; }
+.cat2-header.collapsed .arrow { transform: rotate(-90deg); }
+.cat2-body { max-height: 3000px; overflow: hidden; transition: max-height 0.3s ease; }
+.cat2-body.collapsed { max-height: 0; }
+.term-table { width: 100%; border-collapse: collapse; }
+.term-table th {
+    background: #dbeafe; padding: 10px 16px; text-align: left;
+    font-size: 13px; font-weight: 600; color: #555; border-bottom: 2px solid #bfdbfe;
+}
+.term-table td {
+    padding: 12px 16px; font-size: 14px; color: #333;
+    border-bottom: 1px solid #f0f0f0; vertical-align: top; line-height: 1.6;
+}
+.term-table tr:last-child td { border-bottom: none; }
+.term-table tr:hover td { background: #fafbff; }
+.term-name { font-weight: 700; color: #0f172a; }
+.term-def-empty { color: #bbb; font-style: italic; }
+.highlight { background: #fff3cd; padding: 1px 3px; border-radius: 3px; }
+.term-row.hidden, .cat2-section.hidden, .cat1-card.hidden { display: none; }
+.footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.7); font-size: 12px; }
+
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    .header { padding: 20px; }
+    .header h1 { font-size: 22px; }
+    .search-bar { flex-wrap: wrap; padding: 12px 16px; }
+    .search-bar .btn-group { width: 100%; justify-content: center; }
+    .term-table th, .term-table td { padding: 8px 10px; font-size: 13px; }
+}
+
+/* 统一概览组件 (sc-overview) */
+.sc-overview{
+  background:#fff;border:1px solid #e2e8f0;border-radius:14px;
+  padding:18px 22px;margin:0 0 18px;
+  box-shadow:0 1px 3px rgba(15,23,42,.05);
+}
+.sc-overview .ov-title{
+  font-size:13px;font-weight:700;color:#14489E;letter-spacing:.04em;
+  margin-bottom:14px;display:flex;align-items:center;gap:6px;
+}
+.sc-ov-stats{display:flex;flex-wrap:wrap;gap:26px;}
+.sc-ov-stat{display:flex;flex-direction:column;}
+.sc-ov-stat b{font-size:22px;font-weight:800;color:#1e3a8a;line-height:1.1;}
+.sc-ov-stat span{font-size:12px;color:#64748b;margin-top:4px;}
+.sc-bars{display:flex;flex-direction:column;gap:9px;}
+.sc-bar{display:flex;align-items:center;gap:10px;font-size:13px;}
+.sc-bar-name{width:150px;color:#334155;flex-shrink:0;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sc-bar-track{flex:1;height:10px;background:#e2e8f0;border-radius:6px;overflow:hidden;}
+.sc-bar-fill{height:100%;min-width:6px;background:linear-gradient(90deg,#3B82F6,#14489E);border-radius:6px;}
+.sc-bar-num{width:30px;color:#14489E;font-weight:700;text-align:left;flex-shrink:0;}
+@media (max-width:640px){
+  .sc-bar-name{width:96px;font-size:12px;}
+  .sc-ov-stat b{font-size:19px;}
+  .sc-ov-stats{gap:16px;}
+}
+
+/* ===== 供应链知识库门禁 (形态A：后端真门禁；前端仅渲染 UX) ===== */
+:root{
+  --brand-900:#0B2E59; --brand-700:#14489E; --brand-600:#2563EB; --brand-500:#3B82F6;
+  --brand-100:#EFF4FF; --ink-900:#0F172A; --ink-700:#334155; --ink-500:#64748B;
+  --line:#E6EDF6; --danger:#DC2626; --ease:cubic-bezier(.4,0,.2,1);
+}
+.sc-gate-mask{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:rgba(15,23,42,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:inherit;animation:scFade .25s var(--ease);}
+@keyframes scFade{from{opacity:0}to{opacity:1}}
+.sc-gate-card{width:380px;max-width:92vw;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(11,46,89,.30);position:relative;animation:scPop .28s var(--ease);}
+@keyframes scPop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.sc-gate-card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#3B82F6,#14489E);}
+.sc-gate-body{padding:32px 28px 26px;text-align:center;}
+.sc-gate-logo{width:56px;height:56px;margin:0 auto 14px;border-radius:14px;background:linear-gradient(135deg,#3B82F6,#14489E);display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 20px rgba(37,99,235,.35);}
+.sc-gate-title{font-size:18px;font-weight:700;color:var(--ink-900);margin-bottom:6px;}
+.sc-gate-sub{font-size:13px;color:var(--ink-500);margin-bottom:18px;line-height:1.5;}
+/* 员工身份核验 */
+.sc-gate-emp{margin:4px auto 6px;max-width:300px;}
+.sc-gate-input{width:100%;padding:13px 14px;border:1.5px solid #CBD5E1;border-radius:12px;font-size:15px;font-family:inherit;margin-bottom:10px;outline:none;transition:border-color .15s,box-shadow .15s;box-sizing:border-box;background:#FBFCFE;text-align:center;letter-spacing:.12em;}
+.sc-gate-input:focus{border-color:#2563EB;box-shadow:0 0 0 4px rgba(37,99,235,.15);}
+.sc-gate-err{font-size:12.5px;color:var(--danger);min-height:18px;margin-top:2px;font-weight:500;}
+.sc-gate-err.shake{animation:scShake .4s var(--ease);}
+@keyframes scShake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
+.sc-gate-divider{display:flex;align-items:center;gap:10px;color:var(--ink-400);font-size:12px;margin:8px 0;}
+.sc-gate-divider::before,.sc-gate-divider::after{content:"";flex:1;height:1px;background:#EDF1F8;}
+/* 企业微信扫码（仅在配置企微凭据时显示） */
+.sc-gate-qr{position:relative;width:200px;height:200px;margin:0 auto 14px;border:1px solid #EDF1F8;border-radius:12px;padding:12px;background:#fff;}
+.sc-gate-qr svg{width:100%;height:100%;display:block;border-radius:4px;}
+.sc-gate-qr iframe{width:100%;height:100%;border:0;border-radius:6px;display:block;}
+.sc-gate-qr .qr-mask{position:absolute;inset:12px;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.93);border-radius:8px;font-size:14px;font-weight:600;color:#334155;}
+.sc-gate-qr.state-scanned .qr-mask,.sc-gate-qr.state-success .qr-mask,.sc-gate-qr.state-expired .qr-mask{display:flex;}
+.sc-gate-qr .qr-badge{font-size:44px;line-height:1;}
+.sc-gate-qr.state-success .qr-badge{color:#10B981;}
+.sc-gate-qr.state-scanned .qr-badge{color:#2563EB;}
+.sc-gate-qr.state-expired .qr-badge{color:#F59E0B;}
+.sc-gate-qr .qr-fallback{position:absolute;left:0;right:0;bottom:-22px;font-size:11px;text-align:center;}
+.sc-gate-qr .qr-fallback a{color:#2563EB;text-decoration:none;}
+.sc-ent-card{display:none;align-items:center;gap:12px;text-align:left;margin:2px auto 16px;padding:12px 14px;border:1px solid #BFD7FB;border-radius:12px;background:#EFF4FF;max-width:290px;}
+.sc-gate-qr.state-success ~ .sc-ent-card{display:flex;}
+.sc-ent-ico{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#3B82F6,#14489E);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.sc-ent-info .t{font-size:11px;color:var(--ink-500);}
+.sc-ent-info .n{font-size:15px;font-weight:700;color:var(--brand-900);line-height:1.3;}
+.sc-ent-info .v{font-size:12px;color:#10B981;font-weight:600;}
+.sc-gate-hint{font-size:13px;color:var(--ink-500);margin-bottom:14px;min-height:20px;}
+.sc-gate-hint b{color:var(--brand-600);}
+.sc-gate-btn{display:block;width:100%;padding:13px;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(135deg,#3B82F6,#14489E);color:#fff;font-size:15px;font-weight:600;font-family:inherit;transition:transform .15s,box-shadow .15s;}
+.sc-gate-btn:hover:not([disabled]){transform:translateY(-1px);box-shadow:0 10px 24px rgba(37,99,235,.4);}
+.sc-gate-btn:focus-visible{outline:3px solid #fff;outline-offset:2px;}
+.sc-gate-btn[disabled]{opacity:.6;cursor:not-allowed;}
+.sc-gate-demo{display:none;margin-top:14px;font-size:12px;color:var(--ink-400);}
+.sc-gate-demo a{color:#2563EB;cursor:pointer;text-decoration:none;}
+.sc-gate-demo a:hover{text-decoration:underline;}
+.sc-gate-foot{font-size:11px;color:#CBD5E1;margin-top:8px;}
+@media (max-width:480px){.sc-gate-card{width:100%;max-width:100vw;height:100vh;border-radius:0;display:flex;flex-direction:column;justify-content:center;}}
+@media (prefers-reduced-motion:reduce){.sc-gate-mask{animation:none;}.sc-gate-card{animation:none;}.sc-gate-err.shake{animation:none;}}
+
 </style>
 </head>
 <body>
-<div class="topbar"></div>
+<header class="kb-topbar">
+  <div class="kb-topbar-in">
+    <a class="kb-brand" href="https://jovienne0913.github.io/supply-chain-knowledge-hub/"><span class="kb-brand-logo">📚</span> 锦泓供应链知识库</a>
+    <a class="kb-back" id="backToPortal" href="https://jovienne0913.github.io/supply-chain-knowledge-hub/"><span class="arrow">←</span> 返回门户</a>
+  </div>
+</header>
 <div class="container">
-  <div class="header">
-    <span class="badge">供应链中心</span>
-    <h1>锦泓集团供应链中心知识库</h1>
-    <p>面向供应链中心的知识沉淀平台，汇集行业洞察、产业案例与专业术语，赋能数字化转型与业务决策。</p>
-  </div>
+    <div class="header">
+        <h1>锦泓集团供应链中心术语库</h1>
+        <div class="subtitle">更新日期：2026-07-30</div>
+        <div class="stats">
+            <span class="stat-item">📚 52 条术语</span>
+            <span class="stat-item">📂 8 个一级分类</span>
+            <span class="stat-item">✏️ 5 条待补充</span>
+        </div>
+    </div>
 
-  <div class="features">
-    <div class="feat">
-      <div class="feat-ico">📚</div>
-      <h3>纺织 / 服装 AI 行业洞察</h3>
-      <p>持续追踪行业智能化进程，汇集贝恩、麦肯锡、Gartner、德勤、BCG 五大机构洞察，以及 SHEIN、优衣库、Zara 等头部企业落地案例。</p>
-    </div>
-    <div class="feat">
-      <div class="feat-ico">📖</div>
-      <h3>供应链中心 · 术语表</h3>
-      <p>供应链中心专属术语知识库，覆盖组织架构、系统与数据、生产采购、技术质量等 8 大一级分类，统一术语规范。</p>
-    </div>
-    <div class="feat">
-      <div class="feat-ico">📊</div>
-      <h3>机会点洞察月度报告</h3>
-      <p>供应链中心月度运营报告，汇集关键指标分析与业务洞察，助力决策复盘与持续改进。</p>
-    </div>
-  </div>
-
-  <div class="cta-wrap">
-    <a class="cta" id="kbEntry" href="#">前往内网知识库 <span class="arrow">→</span></a>
-    <div class="note">
-      知识库部署于<b>公司内网</b>，需<b>企业微信扫码</b>验证「锦泓时装集团股份有限公司」企业身份后方可进入，仅限集团员工访问。
-    </div>
-  </div>
-
-  <div class="footer">
-    <p>锦泓集团供应链中心 · 知识库平台<br>持续更新中 · 内部使用</p>
+    <div class="sc-overview">
+  <div class="ov-title">📊 术语分类分布（共 52 条 · 8 大一级分类）</div>
+  <div class="sc-bars">
+<div class="sc-bar"><span class="sc-bar-name">组织架构类（4条）</span><div class="sc-bar-track"><div class="sc-bar-fill" style="width:8%"></div></div><span class="sc-bar-num">4</span></div>
+<div class="sc-bar"><span class="sc-bar-name">系统与数据管理（4条）</span><div class="sc-bar-track"><div class="sc-bar-fill" style="width:8%"></div></div><span class="sc-bar-num">4</span></div>
+<div class="sc-bar"><span class="sc-bar-name">生产采购管理（8条）</span><div class="sc-bar-track"><div class="sc-bar-fill" style="width:15%"></div></div><span class="sc-bar-num">8</span></div>
+<div class="sc-bar"><span class="sc-bar-name">技术与质量管理（12条）</span><div class="sc-bar-track"><div class="sc-bar-fill" style="width:23%"></div></div><span class="sc-bar-num">12</span></div>
+<div class="sc-bar"><span class="sc-bar-name">供应商管理（13条）</span><div class="sc-bar-track"><div class="sc-bar-fill" style="width:25%"></div></div><span class="sc-bar-num">13</span></div>
+<div class="sc-bar"><span class="sc-bar-name">供应链运营（3条）</span><div class="sc-bar-track"><div class="sc-bar-fill" style="width:6%"></div></div><span class="sc-bar-num">3</span></div>
+<div class="sc-bar"><span class="sc-bar-name">成本管理（3条）</span><div class="sc-bar-track"><div class="sc-bar-fill" style="width:6%"></div></div><span class="sc-bar-num">3</span></div>
+<div class="sc-bar"><span class="sc-bar-name">产品与物料管理（5条）</span><div class="sc-bar-track"><div class="sc-bar-fill" style="width:10%"></div></div><span class="sc-bar-num">5</span></div>
   </div>
 </div>
+
+    <div class="search-bar">
+        <span class="icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="输入术语名称、英文全称或定义关键词搜索..." oninput="doSearch()">
+        <span class="result-count" id="resultCount"></span>
+        <div class="btn-group">
+            <button class="btn" onclick="expandAll()">全部展开</button>
+            <button class="btn" onclick="collapseAll()">全部折叠</button>
+        </div>
+    </div>
+
+    <div id="glossaryContent">
+<div class="cat1-card" id="cat1_1">
+<div class="cat1-header" onclick="toggleCat1('cat1_1')"><span>组织架构类（4条）</span><span class="arrow">▼</span></div>
+<div class="cat1-body" id="cat1_1_body">
+<div class="cat2-section" id="cat1_1__main_">
+<div class="cat2-header" onclick="toggleCat2('cat1_1__main_')"><span>组织架构类（4条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_1__main__body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="生产类 Category Expert Group（CEG） 以生产端物料、外协加工品类为最小作战单元，承载采购域供应商与物料全生命周期管理工作的跨职能虚拟执行组织；对齐 Q（Quality 质量）、C（Cost 成本）、D（Delivery 交付）、T/I（Technology/Innovation 技术/创新）核心目标，可在授权限定范围内开展品类业务决策，仅可在授权范围内行使决策权，非顶层决策机构。 跨职能虚拟组织；按品类划分最小作战单元；授权范围内品类决策"><td><span class="term-name">生产类</span></td><td>Category Expert Group（CEG）</td><td>以生产端物料、外协加工品类为最小作战单元，承载采购域供应商与物料全生命周期管理工作的跨职能虚拟执行组织；对齐 Q（Quality 质量）、C（Cost 成本）、D（Delivery 交付）、T/I（Technology/Innovation 技术/创新）核心目标，可在授权限定范围内开展品类业务决策，仅可在授权范围内行使决策权，非顶层决策机构。</td><td>跨职能虚拟组织；按品类划分最小作战单元；授权范围内品类决策</td></tr>
+<tr class="term-row" data-search="流程分委会 集团流程建设管理委员会下设专项二级议事与管理组织 集团流程建设管理委员会（流程MC）下设的专项二级议事与管理组织，按研产、零售、财经、人力、SIP等核心业务领域分条线单独设立，主要负责对应业务板块内流程体系搭建、流程修订优化、流程执行监督、流程相关事项审议决策。 MC=Management Committee；按业务条线分设（研产/零售/财经/人力/SIP等）"><td><span class="term-name">流程分委会</span></td><td>集团流程建设管理委员会下设专项二级议事与管理组织</td><td>集团流程建设管理委员会（流程MC）下设的专项二级议事与管理组织，按研产、零售、财经、人力、SIP等核心业务领域分条线单独设立，主要负责对应业务板块内流程体系搭建、流程修订优化、流程执行监督、流程相关事项审议决策。</td><td>MC=Management Committee；按业务条线分设（研产/零售/财经/人力/SIP等）</td></tr>
+<tr class="term-row" data-search="采委会 集团采购委员会 经集团EMT管理层审议任命设立的集团级采购价格专项决策组织。主要针对超授权额度、战略关键物料、价格偏差超管控阈值的定价事项开展集体评审与终审决策，对大额及高风险采购定价行使最终审批权，出具正式会议决议后方可生效物料采购价格。用于规避单一岗位审批风险、强化集团采购成本顶层管控。 EMT=执行管理团队；采委会决议为采购价格最终审批环节"><td><span class="term-name">采委会</span></td><td>集团采购委员会</td><td>经集团EMT管理层审议任命设立的集团级采购价格专项决策组织。主要针对超授权额度、战略关键物料、价格偏差超管控阈值的定价事项开展集体评审与终审决策，对大额及高风险采购定价行使最终审批权，出具正式会议决议后方可生效物料采购价格。用于规避单一岗位审批风险、强化集团采购成本顶层管控。</td><td>EMT=执行管理团队；采委会决议为采购价格最终审批环节</td></tr>
+<tr class="term-row" data-search="供应链中心ST — 由供应链中心管理层相关成员组成的常设议事组织，针对供应链中心各类核心运营事项开展集体研讨、形成统一共识并出具决议，讨论事项包括对管理损耗基准拟定成果开展会审复核、出具集体确认意见与终审决议。 供应链中心级常设议事组织；损耗基准终审机构"><td><span class="term-name">供应链中心ST</span></td><td>—</td><td>由供应链中心管理层相关成员组成的常设议事组织，针对供应链中心各类核心运营事项开展集体研讨、形成统一共识并出具决议，讨论事项包括对管理损耗基准拟定成果开展会审复核、出具集体确认意见与终审决议。</td><td>供应链中心级常设议事组织；损耗基准终审机构</td></tr>
+</tbody></table></div></div>
+</div></div>
+<div class="cat1-card" id="cat1_2">
+<div class="cat1-header" onclick="toggleCat1('cat1_2')"><span>系统与数据管理（4条）</span><span class="arrow">▼</span></div>
+<div class="cat1-body" id="cat1_2_body">
+<div class="cat2-section" id="cat1_2_数字化应用">
+<div class="cat2-header" onclick="toggleCat2('cat1_2_数字化应用')"><span>数字化应用（4条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_2_数字化应用_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="SRM Supplier Relationship Management（供应商关系管理系统） 连接品牌方与上下游供应商的协同数字化平台，覆盖供应商全生命周期管理、采购订单协同、发货收货、对账、绩效评估等业务，实现供需双方业务流程在线化、数据透明化，提升供需协同效率。 供应商协同数字化平台；覆盖供应商全生命周期+订单协同+收发货+对账+绩效评估"><td><span class="term-name">SRM</span></td><td>Supplier Relationship Management（供应商关系管理系统）</td><td>连接品牌方与上下游供应商的协同数字化平台，覆盖供应商全生命周期管理、采购订单协同、发货收货、对账、绩效评估等业务，实现供需双方业务流程在线化、数据透明化，提升供需协同效率。</td><td>供应商协同数字化平台；覆盖供应商全生命周期+订单协同+收发货+对账+绩效评估</td></tr>
+<tr class="term-row" data-search="SAP SAP ERP（Enterprise Resource Planning，企业资源计划） SAP是提供ERP的厂商；企业使用的SAP系统即SAP ERP软件，是落地ERP管理理念的核心数字化平台，覆盖财务、采购、库存、生产、成本核算全链路，统一归集企业业务数据、标准化管控全流程，打通采购、生产、财务一体化运营，为供应链各业务环节提供统一数据底座。 核心数字化平台；覆盖财务/采购/库存/生产/成本全链路；统一数据底座"><td><span class="term-name">SAP</span></td><td>SAP ERP（Enterprise Resource Planning，企业资源计划）</td><td>SAP是提供ERP的厂商；企业使用的SAP系统即SAP ERP软件，是落地ERP管理理念的核心数字化平台，覆盖财务、采购、库存、生产、成本核算全链路，统一归集企业业务数据、标准化管控全流程，打通采购、生产、财务一体化运营，为供应链各业务环节提供统一数据底座。</td><td>核心数字化平台；覆盖财务/采购/库存/生产/成本全链路；统一数据底座</td></tr>
+<tr class="term-row" data-search="OA Office Automation（办公自动化系统） 企业内部统一协同办公数字化平台，聚焦内部跨部门行政、业务审批流转，覆盖费用报销、合同审批、公文通知、流程督办与归档、人事行政流程等通用办公场景，系统已与我司多个系统（如SAP系统）完成部分数据联动。 内部协同办公平台；跨部门审批流转；已与SAP等系统数据联动"><td><span class="term-name">OA</span></td><td>Office Automation（办公自动化系统）</td><td>企业内部统一协同办公数字化平台，聚焦内部跨部门行政、业务审批流转，覆盖费用报销、合同审批、公文通知、流程督办与归档、人事行政流程等通用办公场景，系统已与我司多个系统（如SAP系统）完成部分数据联动。</td><td>内部协同办公平台；跨部门审批流转；已与SAP等系统数据联动</td></tr>
+<tr class="term-row" data-search="WMS Warehouse Management System（仓储管理系统） 仓库作业数字化管理平台，管控产品出入库、库位管理等仓储业务，由物流管理中心主力使用，系统与SAP、SRM、伯俊系统数据互通，实现库存精准管控。 仓库作业管理平台；物流管理中心主力使用；与SAP/SRM/伯俊数据互通"><td><span class="term-name">WMS</span></td><td>Warehouse Management System（仓储管理系统）</td><td>仓库作业数字化管理平台，管控产品出入库、库位管理等仓储业务，由物流管理中心主力使用，系统与SAP、SRM、伯俊系统数据互通，实现库存精准管控。</td><td>仓库作业管理平台；物流管理中心主力使用；与SAP/SRM/伯俊数据互通</td></tr>
+</tbody></table></div></div>
+</div></div>
+<div class="cat1-card" id="cat1_3">
+<div class="cat1-header" onclick="toggleCat1('cat1_3')"><span>生产采购管理（8条）</span><span class="arrow">▼</span></div>
+<div class="cat1-body" id="cat1_3_body">
+<div class="cat2-section" id="cat1_3_采购管理">
+<div class="cat2-header" onclick="toggleCat2('cat1_3_采购管理')"><span>采购管理（5条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_3_采购管理_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="采购申请单 Purchase Requisition（PR） 采购部或生产部发起，用于申请采购物料或加工的申请单，并需经内部审批的流程单据。PR本身不具备法律约束力，仅作为采购需求凭证。 采购流程起点单据"><td><span class="term-name">采购申请单</span></td><td>Purchase Requisition（PR）</td><td>采购部或生产部发起，用于申请采购物料或加工的申请单，并需经内部审批的流程单据。PR本身不具备法律约束力，仅作为采购需求凭证。</td><td>采购流程起点单据</td></tr>
+<tr class="term-row" data-search="物料报价单 — 供应商按照采购方物料采购需求及技术参数出具的报价书面单据。 供应商报价环节"><td><span class="term-name">物料报价单</span></td><td>—</td><td>供应商按照采购方物料采购需求及技术参数出具的报价书面单据。</td><td>供应商报价环节</td></tr>
+<tr class="term-row" data-search="物料采购订单 Purchase Order（PO） 由采购方向供货方发出的书面采购指令，包含物料名称、规格、数量、价格、交货期等核心信息，是双方履约的重要依据。 采购执行环节核心单据"><td><span class="term-name">物料采购订单</span></td><td>Purchase Order（PO）</td><td>由采购方向供货方发出的书面采购指令，包含物料名称、规格、数量、价格、交货期等核心信息，是双方履约的重要依据。</td><td>采购执行环节核心单据</td></tr>
+<tr class="term-row" data-search="码单 — 供应商系统发货后生成的随货明细清单，随物料直发加工厂，用于实物清点核对、来料检验校验、系统收货归档及业务异常溯源，是服装物料收发货业务的核心随货凭证。 随货明细清单；实物清点/检验/收货/溯源核心凭证"><td><span class="term-name">码单</span></td><td>—</td><td>供应商系统发货后生成的随货明细清单，随物料直发加工厂，用于实物清点核对、来料检验校验、系统收货归档及业务异常溯源，是服装物料收发货业务的核心随货凭证。</td><td>随货明细清单；实物清点/检验/收货/溯源核心凭证</td></tr>
+<tr class="term-row" data-search="直发 物料直发 指面料、辅料、原材料等上游物料供应商，不经过我司自有仓库（如江宁仓）中转入库，直接将货品配送发往外协加工供应商（成衣供应商、配件供应商等），完成货物流转的供货模式。 跳过自有仓库中转；供应商直送外协加工供应商；典型中转仓（江宁仓）"><td><span class="term-name">直发</span></td><td>物料直发</td><td>指面料、辅料、原材料等上游物料供应商，不经过我司自有仓库（如江宁仓）中转入库，直接将货品配送发往外协加工供应商（成衣供应商、配件供应商等），完成货物流转的供货模式。</td><td>跳过自有仓库中转；供应商直送外协加工供应商；典型中转仓（江宁仓）</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_3_物料管理">
+<div class="cat2-header" onclick="toggleCat2('cat1_3_物料管理')"><span>物料管理（3条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_3_物料管理_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="规划物料 — 由集团在产品开发前统一规划，已明确规格、供应资源及价格控制标准，可在多款式中复用的标准化物料。由产品事业部按季度统筹与确认，可在集团多品牌、多条产品线通用复用，使用体量规模大、品质稳定可控，同时具备产品力提升属性的物料。 季度统筹确认；多品牌/多产品线通用复用；规格/资源/价格三明确"><td><span class="term-name">规划物料</span></td><td>—</td><td>由集团在产品开发前统一规划，已明确规格、供应资源及价格控制标准，可在多款式中复用的标准化物料。由产品事业部按季度统筹与确认，可在集团多品牌、多条产品线通用复用，使用体量规模大、品质稳定可控，同时具备产品力提升属性的物料。</td><td>季度统筹确认；多品牌/多产品线通用复用；规格/资源/价格三明确</td></tr>
+<tr class="term-row" data-search="非规划物料 — 未纳入集团季度规划物料池，在产品开发、大货订单阶段因设计调整或临时需求产生的物料，包括：①逆向开发类、②找类似替代类、③常规调样类，后续可投产进入大货订单的常规物料。 未纳入季度规划池；开发/订单阶段临时产生；三类来源（逆向开发/替代/调样）"><td><span class="term-name">非规划物料</span></td><td>—</td><td>未纳入集团季度规划物料池，在产品开发、大货订单阶段因设计调整或临时需求产生的物料，包括：①逆向开发类、②找类似替代类、③常规调样类，后续可投产进入大货订单的常规物料。</td><td>未纳入季度规划池；开发/订单阶段临时产生；三类来源（逆向开发/替代/调样）</td></tr>
+<tr class="term-row" data-search="集采物料 — 由集团统一组织采购、统一定价并签订框架协议，可在多品牌、多系列共享使用的标准化物料。以毛纱、羽绒、胆里布、拉链、包装袋等用量规模庞大的大宗通用物料为主，配套开展期货模式管控。 集团统采统价+框架协议；多品牌共享；期货模式管控；典型品类（毛纱/羽绒/胆里布/拉链/包装袋）"><td><span class="term-name">集采物料</span></td><td>—</td><td>由集团统一组织采购、统一定价并签订框架协议，可在多品牌、多系列共享使用的标准化物料。以毛纱、羽绒、胆里布、拉链、包装袋等用量规模庞大的大宗通用物料为主，配套开展期货模式管控。</td><td>集团统采统价+框架协议；多品牌共享；期货模式管控；典型品类（毛纱/羽绒/胆里布/拉链/包装袋）</td></tr>
+</tbody></table></div></div>
+</div></div>
+<div class="cat1-card" id="cat1_4">
+<div class="cat1-header" onclick="toggleCat1('cat1_4')"><span>技术与质量管理（12条）</span><span class="arrow">▼</span></div>
+<div class="cat1-body" id="cat1_4_body">
+<div class="cat2-section" id="cat1_4_质量管理">
+<div class="cat2-header" onclick="toggleCat2('cat1_4_质量管理')"><span>质量管理（2条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_4_质量管理_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="风险评估 — 在评价会环节，围绕产品质量、成本、交期、创新（QCDI）多维度排查潜在隐患，研判风险影响程度，梳理潜在供货与生产隐患；结果仅形成供应链内部留存文档，不对外同步至产品线，用于指导长周期物料提前采购工作。 评价会环节同步开展；QCDI四维排查；内部留存不对外；指导长周期物料提前备货"><td><span class="term-name">风险评估</span></td><td>—</td><td>在评价会环节，围绕产品质量、成本、交期、创新（QCDI）多维度排查潜在隐患，研判风险影响程度，梳理潜在供货与生产隐患；结果仅形成供应链内部留存文档，不对外同步至产品线，用于指导长周期物料提前采购工作。</td><td>评价会环节同步开展；QCDI四维排查；内部留存不对外；指导长周期物料提前备货</td></tr>
+<tr class="term-row" data-search="验货报告 — 由我方及外协加工供应商双方质量岗位完成来料检验后出具的检验结果文件，用于明确物料质量判定结论。 双方质量岗位共同出具；物料质量判定依据"><td><span class="term-name">验货报告</span></td><td>—</td><td>由我方及外协加工供应商双方质量岗位完成来料检验后出具的检验结果文件，用于明确物料质量判定结论。</td><td>双方质量岗位共同出具；物料质量判定依据</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_4_技术管理">
+<div class="cat2-header" onclick="toggleCat2('cat1_4_技术管理')"><span>技术管理（2条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_4_技术管理_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="损耗基准 — 集团针对面料、辅料等物料采购环节及外协加工生产环节设定的标准化允许损耗比例阈值。依托历史生产数据、工艺技术参数与成本测算核定生成，经审批后录入SAP系统固化生效，作为采购下单量核算、生产投料管控、成本账务核算、损耗异常稽核判定的官方量化依据，用于界定合理损耗边界、压降非必要损耗，实现供应链全链路损耗精细化管控。 SAP系统固化生效；覆盖采购/生产/账务/稽核全链路"><td><span class="term-name">损耗基准</span></td><td>—</td><td>集团针对面料、辅料等物料采购环节及外协加工生产环节设定的标准化允许损耗比例阈值。依托历史生产数据、工艺技术参数与成本测算核定生成，经审批后录入SAP系统固化生效，作为采购下单量核算、生产投料管控、成本账务核算、损耗异常稽核判定的官方量化依据，用于界定合理损耗边界、压降非必要损耗，实现供应链全链路损耗精细化管控。</td><td>SAP系统固化生效；覆盖采购/生产/账务/稽核全链路</td></tr>
+<tr class="term-row" data-search="物料清单 Bill of Materials（BOM） 指产品生产所需物料及用量信息的集合，通常包括产品主数据、物料主数据、使用部位、物料颜色、物料规格、门幅及用量等信息，是系统计算物料需求数量的基础。 系统计算物料需求的基础数据集合"><td><span class="term-name">物料清单</span></td><td>Bill of Materials（BOM）</td><td>指产品生产所需物料及用量信息的集合，通常包括产品主数据、物料主数据、使用部位、物料颜色、物料规格、门幅及用量等信息，是系统计算物料需求数量的基础。</td><td>系统计算物料需求的基础数据集合</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_4_质量类">
+<div class="cat2-header" onclick="toggleCat2('cat1_4_质量类')"><span>质量类（8条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_4_质量类_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="理化测试 — 运用物理、化学的检测方法及仪器设备，对服装物料、半成品及成品的物理性能、化学特性、安全指标进行系统性检测，核心目的是验证服装是否符合国家标准、行业标准或客户要求，保障产品质量、安全性与耐用性。 质量检测核心手段；覆盖物料/半成品/成品"><td><span class="term-name">理化测试</span></td><td>—</td><td>运用物理、化学的检测方法及仪器设备，对服装物料、半成品及成品的物理性能、化学特性、安全指标进行系统性检测，核心目的是验证服装是否符合国家标准、行业标准或客户要求，保障产品质量、安全性与耐用性。</td><td>质量检测核心手段；覆盖物料/半成品/成品</td></tr>
+<tr class="term-row" data-search="第三方测试机构 — 经国家认证授权，独立于买卖双方（我司与供应商方）之外，具备专业测试能力和资质的机构，负责对产品进行质量检测、安全评估、性能测试等，确保产品符合相关标准和法规要求。 独立于买卖双方；需具备国家认证资质"><td><span class="term-name">第三方测试机构</span></td><td>—</td><td>经国家认证授权，独立于买卖双方（我司与供应商方）之外，具备专业测试能力和资质的机构，负责对产品进行质量检测、安全评估、性能测试等，确保产品符合相关标准和法规要求。</td><td>独立于买卖双方；需具备国家认证资质</td></tr>
+<tr class="term-row" data-search="国家标准 国标，GB 由国家标准化管理委员会（SAC）批准发布，全国统一适用的技术、管理及工作要求标准，具有权威性和通用性，分为强制性与推荐性两类。 标准优先级最高；SAC批准发布；分强制性/推荐性"><td><span class="term-name">国家标准</span></td><td>国标，GB</td><td>由国家标准化管理委员会（SAC）批准发布，全国统一适用的技术、管理及工作要求标准，具有权威性和通用性，分为强制性与推荐性两类。</td><td>标准优先级最高；SAC批准发布；分强制性/推荐性</td></tr>
+<tr class="term-row" data-search="行业标准 行标，如FZ/T、QB/T 由行业主管部门/协会发布，行业内统一适用的技术标准，是国标的补充细化，要求不低于国标。服装行业常见为纺织行业标准（FZ/T）、轻工行业标准（QB/T）。采购过程中需结合品类明确行标，作为供应商筛选及验收依据。 行业主管部门/协会发布；要求≥国标；采购筛选验收依据"><td><span class="term-name">行业标准</span></td><td>行标，如FZ/T、QB/T</td><td>由行业主管部门/协会发布，行业内统一适用的技术标准，是国标的补充细化，要求不低于国标。服装行业常见为纺织行业标准（FZ/T）、轻工行业标准（QB/T）。采购过程中需结合品类明确行标，作为供应商筛选及验收依据。</td><td>行业主管部门/协会发布；要求≥国标；采购筛选验收依据</td></tr>
+<tr class="term-row" data-search="企业标准 企标，Q 企业自主制定的内部管理及产品要求标准，需备案且要求不低于国标/行标，可制定差异化高阶要求，体现品牌个性化、高品质要求（如面料成分、功能性等专项要求）。采购时需将企标纳入合同，作为研发、生产及验收核心依据。示例：《Q 3101TWN 012-2024 时尚羽绒服饰》。 企业自主制定需备案；要求≥国标/行标；体现品牌差异化"><td><span class="term-name">企业标准</span></td><td>企标，Q</td><td>企业自主制定的内部管理及产品要求标准，需备案且要求不低于国标/行标，可制定差异化高阶要求，体现品牌个性化、高品质要求（如面料成分、功能性等专项要求）。采购时需将企标纳入合同，作为研发、生产及验收核心依据。示例：《Q 3101TWN 012-2024 时尚羽绒服饰》。</td><td>企业自主制定需备案；要求≥国标/行标；体现品牌差异化</td></tr>
+<tr class="term-row" data-search="理化测试报告 — 按照中国国家标准、行业标准或企业标准进行的理化性能测试所出具的报告，用于评估服装产品的物理和化学性能是否符合相关标准。 质量合规证明文件"><td><span class="term-name">理化测试报告</span></td><td>—</td><td>按照中国国家标准、行业标准或企业标准进行的理化性能测试所出具的报告，用于评估服装产品的物理和化学性能是否符合相关标准。</td><td>质量合规证明文件</td></tr>
+<tr class="term-row" data-search="限值 — 依据我司送第三方检测机构送检时注明的检测项目结果值，判断服装安全及质量指标是否合规而设定的量化允许边界（如甲醛含量、pH值等安全及质量指标），在量化允许边界内是采购产品合规的强制性底线要求。 合规判定边界；强制性底线要求"><td><span class="term-name">限值</span></td><td>—</td><td>依据我司送第三方检测机构送检时注明的检测项目结果值，判断服装安全及质量指标是否合规而设定的量化允许边界（如甲醛含量、pH值等安全及质量指标），在量化允许边界内是采购产品合规的强制性底线要求。</td><td>合规判定边界；强制性底线要求</td></tr>
+<tr class="term-row" data-search="送检样 理化测试样 从面料/成衣大货中抽取，专门用于第三方或企业内部实验室开展物理性能与化学安全指标检测的代表性样品。 大货抽样；代表整批质量水平"><td><span class="term-name">送检样</span></td><td>理化测试样</td><td>从面料/成衣大货中抽取，专门用于第三方或企业内部实验室开展物理性能与化学安全指标检测的代表性样品。</td><td>大货抽样；代表整批质量水平</td></tr>
+</tbody></table></div></div>
+</div></div>
+<div class="cat1-card" id="cat1_5">
+<div class="cat1-header" onclick="toggleCat1('cat1_5')"><span>供应商管理（13条）</span><span class="arrow">▼</span></div>
+<div class="cat1-body" id="cat1_5_body">
+<div class="cat2-section" id="cat1_5_合同类">
+<div class="cat2-header" onclick="toggleCat2('cat1_5_合同类')"><span>合同类（4条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_5_合同类_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="采购合同 — 为明确采购方与供货方物料采购权利义务关系，依法签订的正式书面协议，具备法律效力。 法律约束力合同"><td><span class="term-name">采购合同</span></td><td>—</td><td>为明确采购方与供货方物料采购权利义务关系，依法签订的正式书面协议，具备法律效力。</td><td>法律约束力合同</td></tr>
+<tr class="term-row" data-search="框架合同 — 我司与长期合作供应商签署的年度合作总协议，仅约定双方年度合作通用规则、合作品类、定价机制、结算方式、质量标准、履约权责、年度合作约束等通用条款，不锁定单次具体采购数量、交期。物料类框架合同分为面料、辅料、原材料三类。 年度总协议；不锁单次数量/交期；面料/辅料/原材料三类"><td><span class="term-name">框架合同</span></td><td>—</td><td>我司与长期合作供应商签署的年度合作总协议，仅约定双方年度合作通用规则、合作品类、定价机制、结算方式、质量标准、履约权责、年度合作约束等通用条款，不锁定单次具体采购数量、交期。物料类框架合同分为面料、辅料、原材料三类。</td><td>年度总协议；不锁单次数量/交期；面料/辅料/原材料三类</td></tr>
+<tr class="term-row" data-search="制式订单合同 — 我司为重复开展同类交易预先统一拟定固定版式完整条款，经法务经理审核通过并完成统一备案，交易双方仅可填写标的、数量、金额、交期等空白信息，核心通用条款不得进行实质性修改的标准化合同文本。 标准化合同；法务前置审核备案；仅可填写空白项"><td><span class="term-name">制式订单合同</span></td><td>—</td><td>我司为重复开展同类交易预先统一拟定固定版式完整条款，经法务经理审核通过并完成统一备案，交易双方仅可填写标的、数量、金额、交期等空白信息，核心通用条款不得进行实质性修改的标准化合同文本。</td><td>标准化合同；法务前置审核备案；仅可填写空白项</td></tr>
+<tr class="term-row" data-search="非制式订单合同 — 无统一备案标准模板，未经过法务前置统一审核备案，全部条款由交易双方结合单次业务实际需求一对一磋商、逐条沟通后定制拟定，可按需增删、调整全部约定内容的个性化合同。 个性化合同；逐条磋商定制；无法务前置备案"><td><span class="term-name">非制式订单合同</span></td><td>—</td><td>无统一备案标准模板，未经过法务前置统一审核备案，全部条款由交易双方结合单次业务实际需求一对一磋商、逐条沟通后定制拟定，可按需增删、调整全部约定内容的个性化合同。</td><td>个性化合同；逐条磋商定制；无法务前置备案</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_5_季度规划">
+<div class="cat2-header" onclick="toggleCat2('cat1_5_季度规划')"><span>季度规划（3条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_5_季度规划_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="季度供应规划（物料） — 由供应链中心供应商管理部按产品季别共享发布，按品类、产品线梳理形成官方供应商清单，清晰划定本季度可开展面料开发、询价议价、下单签约等业务合作的供应商范围，是各物料采购相关业务执行的依据之一。 按季别发布；供应商管理部编制；物料采购业务合规依据"><td><span class="term-name">季度供应规划（物料）</span></td><td>—</td><td>由供应链中心供应商管理部按产品季别共享发布，按品类、产品线梳理形成官方供应商清单，清晰划定本季度可开展面料开发、询价议价、下单签约等业务合作的供应商范围，是各物料采购相关业务执行的依据之一。</td><td>按季别发布；供应商管理部编制；物料采购业务合规依据</td></tr>
+<tr class="term-row" data-search="季度供应规划（加工） — 由供应链中心供应商管理部按产品季别编制发布，按品类、产品线搭建并公示净加工类供应商资源池，明确本季度可开展打样开发、加工询价议价、生产加工签约合作的加工供应商范围，是各加工业务筛选合作供方、开展外协加工业务的合规执行依据。 按季别发布；供应商管理部编制；外协加工业务合规依据"><td><span class="term-name">季度供应规划（加工）</span></td><td>—</td><td>由供应链中心供应商管理部按产品季别编制发布，按品类、产品线搭建并公示净加工类供应商资源池，明确本季度可开展打样开发、加工询价议价、生产加工签约合作的加工供应商范围，是各加工业务筛选合作供方、开展外协加工业务的合规执行依据。</td><td>按季别发布；供应商管理部编制；外协加工业务合规依据</td></tr>
+<tr class="term-row" data-search="产能规划 — 待补充 —"><td><span class="term-name">产能规划</span></td><td>—</td><td class="term-def-empty">待补充</td><td class="term-def-empty">—</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_5_供应商生命周期管理">
+<div class="cat2-header" onclick="toggleCat2('cat1_5_供应商生命周期管理')"><span>供应商生命周期管理（1条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_5_供应商生命周期管理_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="供应商准入 — 待补充 —"><td><span class="term-name">供应商准入</span></td><td>—</td><td class="term-def-empty">待补充</td><td class="term-def-empty">—</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_5_供应商能力管理">
+<div class="cat2-header" onclick="toggleCat2('cat1_5_供应商能力管理')"><span>供应商能力管理（1条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_5_供应商能力管理_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="柔性产能 — 待补充 —"><td><span class="term-name">柔性产能</span></td><td>—</td><td class="term-def-empty">待补充</td><td class="term-def-empty">—</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_5_供应商资源池管理">
+<div class="cat2-header" onclick="toggleCat2('cat1_5_供应商资源池管理')"><span>供应商资源池管理（1条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_5_供应商资源池管理_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="加工供应商资源池 — 待补充 —"><td><span class="term-name">加工供应商资源池</span></td><td>—</td><td class="term-def-empty">待补充</td><td class="term-def-empty">—</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_5_供应商分层分级">
+<div class="cat2-header" onclick="toggleCat2('cat1_5_供应商分层分级')"><span>供应商分层分级（1条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_5_供应商分层分级_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="战略供应商 — 待补充 —"><td><span class="term-name">战略供应商</span></td><td>—</td><td class="term-def-empty">待补充</td><td class="term-def-empty">—</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_5_供应商主数据">
+<div class="cat2-header" onclick="toggleCat2('cat1_5_供应商主数据')"><span>供应商主数据（1条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_5_供应商主数据_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="加工供应商 外协加工供应商 承接品牌外发生产任务，按照品牌提供的物料、工艺文件、品质标准与交期要求完成加工并交付货品的外部合作厂商。我司合作供方包含成衣缝制、配件加工、绣印花加工、洗水加工等类型，合作模式包括但不限于CMT（Cutting裁剪、Making缝制、Trimming后整）来料加工、ODM（Original Design Manufacturer）设计代工。 CMT=来料加工；ODM=设计代工；类型含成衣/配件/绣印花/洗水"><td><span class="term-name">加工供应商</span></td><td>外协加工供应商</td><td>承接品牌外发生产任务，按照品牌提供的物料、工艺文件、品质标准与交期要求完成加工并交付货品的外部合作厂商。我司合作供方包含成衣缝制、配件加工、绣印花加工、洗水加工等类型，合作模式包括但不限于CMT（Cutting裁剪、Making缝制、Trimming后整）来料加工、ODM（Original Design Manufacturer）设计代工。</td><td>CMT=来料加工；ODM=设计代工；类型含成衣/配件/绣印花/洗水</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_5_绩效与产能">
+<div class="cat2-header" onclick="toggleCat2('cat1_5_绩效与产能')"><span>绩效与产能（1条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_5_绩效与产能_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="产能规划 — 由供应链中心/供应商管理部主导、每半年度开展的供应链前置统筹工作，结合产品季别生产需求及外协加工供应商绩效、分层分级结果，测算各供应商品类别可承载产能，合理分配订单配额、管控生产负荷，提前排查产能瓶颈、储备备选资源，优化产能与订单分配，旨在确保订单品质、成本、交期（QCD）可控落地。 半年度统筹；供应商管理部主导；订单配额分配+产能瓶颈排查+QCD落地"><td><span class="term-name">产能规划</span></td><td>—</td><td>由供应链中心/供应商管理部主导、每半年度开展的供应链前置统筹工作，结合产品季别生产需求及外协加工供应商绩效、分层分级结果，测算各供应商品类别可承载产能，合理分配订单配额、管控生产负荷，提前排查产能瓶颈、储备备选资源，优化产能与订单分配，旨在确保订单品质、成本、交期（QCD）可控落地。</td><td>半年度统筹；供应商管理部主导；订单配额分配+产能瓶颈排查+QCD落地</td></tr>
+</tbody></table></div></div>
+</div></div>
+<div class="cat1-card" id="cat1_6">
+<div class="cat1-header" onclick="toggleCat1('cat1_6')"><span>供应链运营（3条）</span><span class="arrow">▼</span></div>
+<div class="cat1-body" id="cat1_6_body">
+<div class="cat2-section" id="cat1_6__main_">
+<div class="cat2-header" onclick="toggleCat2('cat1_6__main_')"><span>供应链运营（1条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_6__main__body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="ISC Integrated Supply Chain（集成供应链） 端到端一体化供应链全域运营管理体系，以需求计划为源头串联商品规划、物料寻源采购、加工协同、供应商全生命周期管理等全链条业务，破除模块信息孤岛，依托标准化流程与数据协同实现产销匹配、成本压降、交期保障与供应链风险统一治理，承接IPD集成产品开发前端开发输出结果，依托MDP主开发计划落地节点排产与物料交付执行。 IPD下游执行体系；需求驱动全链条协同；产销匹配+成本压降+交期保障+风险治理"><td><span class="term-name">ISC</span></td><td>Integrated Supply Chain（集成供应链）</td><td>端到端一体化供应链全域运营管理体系，以需求计划为源头串联商品规划、物料寻源采购、加工协同、供应商全生命周期管理等全链条业务，破除模块信息孤岛，依托标准化流程与数据协同实现产销匹配、成本压降、交期保障与供应链风险统一治理，承接IPD集成产品开发前端开发输出结果，依托MDP主开发计划落地节点排产与物料交付执行。</td><td>IPD下游执行体系；需求驱动全链条协同；产销匹配+成本压降+交期保障+风险治理</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_6_交付类">
+<div class="cat2-header" onclick="toggleCat2('cat1_6_交付类')"><span>交付类（1条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_6_交付类_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="MDP Master Development Plan（主开发计划） 以全链路交期管控为核心的顶层总排期计划，属于IPD（Integrated Product Development，集成产品开发）体系下的项目总进度基线文件。统筹各产品线、产品季全品类商品，从款式开发立项、多轮打样确认、面辅料寻源采购、物料齐套、外协加工生产直至成品入库履约全流程关键里程碑，统一锁定各环节节点、前置依赖关系与最终交付交期，作为跨部门、多供方协同的统一时间基准，核心负责交期计划编制、节点跟进、逾期风险预警与进度闭环管控。 IPD体系总进度基线；全链路交期管控；跨部门/多供方协同时间基准"><td><span class="term-name">MDP</span></td><td>Master Development Plan（主开发计划）</td><td>以全链路交期管控为核心的顶层总排期计划，属于IPD（Integrated Product Development，集成产品开发）体系下的项目总进度基线文件。统筹各产品线、产品季全品类商品，从款式开发立项、多轮打样确认、面辅料寻源采购、物料齐套、外协加工生产直至成品入库履约全流程关键里程碑，统一锁定各环节节点、前置依赖关系与最终交付交期，作为跨部门、多供方协同的统一时间基准，核心负责交期计划编制、节点跟进、逾期风险预警与进度闭环管控。</td><td>IPD体系总进度基线；全链路交期管控；跨部门/多供方协同时间基准</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_6_指标类">
+<div class="cat2-header" onclick="toggleCat2('cat1_6_指标类')"><span>指标类（1条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_6_指标类_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="质量成本交期 Quality, Cost, Delivery（QCD） 在供应链采购领域，QCD即质量、成本、交期，是用于考核供应商及供应链内部各环节履约与运营水平的核心三维绩效评价指标。 供应商及供应链运营核心三维考核指标"><td><span class="term-name">质量成本交期</span></td><td>Quality, Cost, Delivery（QCD）</td><td>在供应链采购领域，QCD即质量、成本、交期，是用于考核供应商及供应链内部各环节履约与运营水平的核心三维绩效评价指标。</td><td>供应商及供应链运营核心三维考核指标</td></tr>
+</tbody></table></div></div>
+</div></div>
+<div class="cat1-card" id="cat1_7">
+<div class="cat1-header" onclick="toggleCat1('cat1_7')"><span>成本管理（3条）</span><span class="arrow">▼</span></div>
+<div class="cat1-body" id="cat1_7_body">
+<div class="cat2-section" id="cat1_7_指标类">
+<div class="cat2-header" onclick="toggleCat2('cat1_7_指标类')"><span>指标类（2条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_7_指标类_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="价格偏差比例 — 用于判定物料定价是否触发二次议价、升级审批、采委会终审的核心量化阈值指标。以成本管理部输出的标准目标成本作为对标基准，正向偏差代表报价高于内控目标价，负向偏差代表报价低于内控目标价。 定价审批决策依据"><td><span class="term-name">价格偏差比例</span></td><td>—</td><td>用于判定物料定价是否触发二次议价、升级审批、采委会终审的核心量化阈值指标。以成本管理部输出的标准目标成本作为对标基准，正向偏差代表报价高于内控目标价，负向偏差代表报价低于内控目标价。</td><td>定价审批决策依据</td></tr>
+<tr class="term-row" data-search="季度目标成本率 — 结合季度整体订货额度、产品品类结构、历史成本数据及市场行情等多项核心经营数据，在季度期初完成前置测算工作；测算结果与各事业部、对应产品线充分对齐沟通并正式确认锁定，以此作为本季度全周期内，指导生产采购、订单下单、流程审批等环节，开展产品成本事前规划、事中监督管控与事后复盘考核的标准化管控指标。 季度期初测算锁定；事前规划-事中管控-事后考核的全周期成本基准"><td><span class="term-name">季度目标成本率</span></td><td>—</td><td>结合季度整体订货额度、产品品类结构、历史成本数据及市场行情等多项核心经营数据，在季度期初完成前置测算工作；测算结果与各事业部、对应产品线充分对齐沟通并正式确认锁定，以此作为本季度全周期内，指导生产采购、订单下单、流程审批等环节，开展产品成本事前规划、事中监督管控与事后复盘考核的标准化管控指标。</td><td>季度期初测算锁定；事前规划-事中管控-事后考核的全周期成本基准</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_7_趋势类">
+<div class="cat2-header" onclick="toggleCat2('cat1_7_趋势类')"><span>趋势类（1条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_7_趋势类_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="物料市场趋势报告 — 由供应链中心成本管理部定期分享发布，结合各类生产常用物料市场行情波动情况完成行情动态追踪与数据分析，用于支撑采购环节议价谈判、集采物料锁价等业务工作的专项分析文件。 成本管理部定期输出；支撑议价谈判与集采锁价决策"><td><span class="term-name">物料市场趋势报告</span></td><td>—</td><td>由供应链中心成本管理部定期分享发布，结合各类生产常用物料市场行情波动情况完成行情动态追踪与数据分析，用于支撑采购环节议价谈判、集采物料锁价等业务工作的专项分析文件。</td><td>成本管理部定期输出；支撑议价谈判与集采锁价决策</td></tr>
+</tbody></table></div></div>
+</div></div>
+<div class="cat1-card" id="cat1_8">
+<div class="cat1-header" onclick="toggleCat1('cat1_8')"><span>产品与物料管理（5条）</span><span class="arrow">▼</span></div>
+<div class="cat1-body" id="cat1_8_body">
+<div class="cat2-section" id="cat1_8_产品开发管理">
+<div class="cat2-header" onclick="toggleCat2('cat1_8_产品开发管理')"><span>产品开发管理（2条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_8_产品开发管理_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="IPD Integrated Product Development（集成产品开发） 一套跨职能、端到端的新品全生命周期标准化管理体系，以市场商业价值为核心导向，打通企划设计、技术研发、采购生产、质量管控、商品运营等多部门业务壁垒，把商品上新按商业化项目模式实施分级决策与分阶段评审，覆盖商品从规划立项、开发打样、物料筹备、批量生产、上市销售到退市复盘的完整生命周期。 跨职能端到端管理体系；商业化项目模式；分级决策+分阶段评审；覆盖全生命周期"><td><span class="term-name">IPD</span></td><td>Integrated Product Development（集成产品开发）</td><td>一套跨职能、端到端的新品全生命周期标准化管理体系，以市场商业价值为核心导向，打通企划设计、技术研发、采购生产、质量管控、商品运营等多部门业务壁垒，把商品上新按商业化项目模式实施分级决策与分阶段评审，覆盖商品从规划立项、开发打样、物料筹备、批量生产、上市销售到退市复盘的完整生命周期。</td><td>跨职能端到端管理体系；商业化项目模式；分级决策+分阶段评审；覆盖全生命周期</td></tr>
+<tr class="term-row" data-search="产品力 Product Power 依托面料、纱线、辅料等物料，结合版型设计、缝制工艺、细节做工、结构技术等多维度打磨优化，综合拉高成衣整体手感、观感、穿着体验与耐久品质，让产品实物呈现更优质质感、更高穿着价值的综合产品核心竞争力。 用于产品企划、开发评审、面辅料选型及产品竞争力评估等场景，衡量成衣在质感与穿着价值上的综合表现。"><td><span class="term-name">产品力</span></td><td>Product Power</td><td>依托面料、纱线、辅料等物料，结合版型设计、缝制工艺、细节做工、结构技术等多维度打磨优化，综合拉高成衣整体手感、观感、穿着体验与耐久品质，让产品实物呈现更优质质感、更高穿着价值的综合产品核心竞争力。</td><td>用于产品企划、开发评审、面辅料选型及产品竞争力评估等场景，衡量成衣在质感与穿着价值上的综合表现。</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_8_物料管理">
+<div class="cat2-header" onclick="toggleCat2('cat1_8_物料管理')"><span>物料管理（2条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_8_物料管理_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="长周期物料 — 受上游产能、原料采收季节、跨境运输、定织定染等定制工艺约束，从下单、原料织造、染整加工直至入库全链路交付周期显著长于现货面料与常规辅料；该类物料可选替代资源少，一旦供货延误极易导致成衣断料、生产排期滞后，需依托销售预测提前锁产能、锁订单，开展专项预判备货管理的核心面料及特殊辅料。 交付周期显著长于常规；替代资源少；需提前锁产能锁订单备货"><td><span class="term-name">长周期物料</span></td><td>—</td><td>受上游产能、原料采收季节、跨境运输、定织定染等定制工艺约束，从下单、原料织造、染整加工直至入库全链路交付周期显著长于现货面料与常规辅料；该类物料可选替代资源少，一旦供货延误极易导致成衣断料、生产排期滞后，需依托销售预测提前锁产能、锁订单，开展专项预判备货管理的核心面料及特殊辅料。</td><td>交付周期显著长于常规；替代资源少；需提前锁产能锁订单备货</td></tr>
+<tr class="term-row" data-search="物料规格书 — 详细规定产品所需各类物料（原材料、辅料、包装材料等）的技术规格、质量要求、检验标准、验收方法的技术性文件，是采购、检验、生产的核心依据。 采购/检验/生产核心依据文件"><td><span class="term-name">物料规格书</span></td><td>—</td><td>详细规定产品所需各类物料（原材料、辅料、包装材料等）的技术规格、质量要求、检验标准、验收方法的技术性文件，是采购、检验、生产的核心依据。</td><td>采购/检验/生产核心依据文件</td></tr>
+</tbody></table></div></div>
+<div class="cat2-section" id="cat1_8_会议类">
+<div class="cat2-header" onclick="toggleCat2('cat1_8_会议类')"><span>会议类（1条）</span><span class="arrow">▼</span></div>
+<div class="cat2-body" id="cat1_8_会议类_body">
+<table class="term-table"><thead><tr><th style="width:18%">术语</th><th style="width:22%">全称/英文</th><th style="width:42%">术语定义</th><th style="width:18%">使用场景/备注</th></tr></thead><tbody>
+<tr class="term-row" data-search="评价会 — 由产品事业部分产品线发起召开，结合市场与行业流行趋势，针对评价会样衣的版型工艺、款式设计、配色方案、单品成本等开展多维度综合评审，完成款式筛选与初步立项确认的专项评审会议。 产品事业部发起；多维度评审（版型/款式/配色/成本）；款式筛选+初步立项"><td><span class="term-name">评价会</span></td><td>—</td><td>由产品事业部分产品线发起召开，结合市场与行业流行趋势，针对评价会样衣的版型工艺、款式设计、配色方案、单品成本等开展多维度综合评审，完成款式筛选与初步立项确认的专项评审会议。</td><td>产品事业部发起；多维度评审（版型/款式/配色/成本）；款式筛选+初步立项</td></tr>
+</tbody></table></div></div>
+</div></div>
+    </div>
+    <div class="footer">锦泓集团供应链中心 · 术语库 · 更新于 2026-07-30 · 共 52 条术语</div>
+</div>
+<div class="sc-gate-mask" id="scGate" role="dialog" aria-modal="true" aria-label="身份核验">
+  <div class="sc-gate-card">
+    <div class="sc-gate-body">
+      <div class="sc-gate-logo">🔐</div>
+      <div class="sc-gate-title">锦泓供应链知识库 · 身份核验</div>
+
+      <div class="sc-gate-emp" id="scGateEmp">
+        <input type="text" id="scGateEmpId" class="sc-gate-input" placeholder="工号" inputmode="numeric" maxlength="8" autocomplete="off" />
+        <button class="sc-gate-btn" id="scGateEmpBtn">验证进入</button>
+        <div class="sc-gate-err" id="scGateErr"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <script>
-// ===== 引导页入口地址配置 =====
-// 本地预览（127.0.0.1 / localhost）自动指向同域后端根路径（已含门禁）；
-// 部署到 GitHub Pages 时，把 KB_INTERNAL_BASE 改成真实内网地址即可。
-const KB_INTERNAL_BASE = "https://REPLACE-WITH-INTRANET-ADDRESS";
-(function(){
-  var isLocal = ['127.0.0.1','localhost','0.0.0.0'].indexOf(location.hostname) >= 0;
-  var url = isLocal ? '/' : KB_INTERNAL_BASE;
-  var a = document.getElementById('kbEntry');
-  if (a) {
-    a.setAttribute('href', url);
-    if (!isLocal && /^https?:\/\//.test(url) && url.indexOf('REPLACE') >= 0) {
-      a.addEventListener('click', function(e){ e.preventDefault(); alert('请先在引导页脚本中配置 KB_INTERNAL_BASE 为真实内网地址'); });
+// 供应链知识库 · 术语库交互脚本 (UI Designer)
+function toggleCat1(id) {
+    var body = document.getElementById(id + '_body');
+    body.classList.toggle('collapsed');
+    body.previousElementSibling.classList.toggle('collapsed');
+}
+function toggleCat2(id) {
+    var body = document.getElementById(id + '_body');
+    body.classList.toggle('collapsed');
+    body.previousElementSibling.classList.toggle('collapsed');
+}
+function expandAll() {
+    document.querySelectorAll('.cat1-body,.cat2-body').forEach(function(e){e.classList.remove('collapsed')});
+    document.querySelectorAll('.cat1-header,.cat2-header').forEach(function(e){e.classList.remove('collapsed')});
+}
+function collapseAll() {
+    document.querySelectorAll('.cat1-body,.cat2-body').forEach(function(e){e.classList.add('collapsed')});
+    document.querySelectorAll('.cat1-header,.cat2-header').forEach(function(e){e.classList.add('collapsed')});
+}
+function doSearch() {
+    var q = document.getElementById('searchInput').value.trim().toLowerCase();
+    var rows = document.querySelectorAll('.term-row');
+    var vc = 0, tc = rows.length;
+    rows.forEach(function(r) {
+        r.querySelectorAll('.highlight').forEach(function(s){s.outerHTML=s.textContent});
+    });
+    if (!q) {
+        rows.forEach(function(r){r.classList.remove('hidden')});
+        document.querySelectorAll('.cat2-section,.cat1-card').forEach(function(e){e.classList.remove('hidden')});
+        document.getElementById('resultCount').textContent='';
+        return;
     }
+    rows.forEach(function(r) {
+        if (r.getAttribute('data-search').toLowerCase().indexOf(q)>=0) {
+            r.classList.remove('hidden'); vc++;
+            r.querySelectorAll('td').forEach(function(c){hlText(c,q)});
+        } else { r.classList.add('hidden'); }
+    });
+    document.querySelectorAll('.cat2-section').forEach(function(s){
+        s.classList.toggle('hidden', s.querySelectorAll('.term-row:not(.hidden)').length===0);
+    });
+    document.querySelectorAll('.cat1-card').forEach(function(c){
+        c.classList.toggle('hidden', c.querySelectorAll('.cat2-section:not(.hidden)').length===0);
+    });
+    document.querySelectorAll('.cat1-card:not(.hidden) .cat1-body,.cat1-card:not(.hidden) .cat2-body').forEach(function(e){e.classList.remove('collapsed')});
+    document.querySelectorAll('.cat1-card:not(.hidden) .cat1-header,.cat1-card:not(.hidden) .cat2-header').forEach(function(e){e.classList.remove('collapsed')});
+    document.getElementById('resultCount').textContent = vc+' / '+tc+' 条';
+}
+function hlText(el,q) {
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false),ns=[];
+    while(w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(function(n){
+        var t=n.textContent,lo=t.toLowerCase(),i=lo.indexOf(q);
+        if(i<0)return;
+        var s=document.createElement('span');
+        s.innerHTML=escH(t.substring(0,i))+'<span class="highlight">'+escH(t.substring(i,i+q.length))+'</span>'+escH(t.substring(i+q.length));
+        n.parentNode.replaceChild(s,n);
+    });
+}
+function escH(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+
+// 返回门户页：本地预览跳本地门户文件，线上 GitHub Pages 跳线上地址
+document.addEventListener('DOMContentLoaded', function () {
+    if (location.hostname !== 'jovienne0913.github.io') {
+        var b = document.getElementById('backToPortal');
+        if (b) b.setAttribute('href', '../portal/index.html');
+    }
+});
+
+// ===== 供应链知识库门禁 (形态A：后端真门禁；前端仅渲染 UX) =====
+// 主形态：8 位工号(103 开头) 核验，后端记载
+// 备选：配置企微凭据扫码 / 演示模式(无后端预览)
+(function(){
+  function $(id){return document.getElementById(id);}
+  var GATE = window.KB_GATE || {wecom:false, code:false, employee:true, mock:true};
+
+  function removeMask(){
+    var m=$('scGate');if(!m)return;
+    m.style.transition='opacity .25s';m.style.opacity='0';
+    setTimeout(function(){
+      if(m.parentNode)m.parentNode.removeChild(m);
+      if(m.getAttribute('data-shell'))window.location.reload();
+    },250);
   }
+  function authed(){removeMask();}
+  function showErr(msg){var e=$('scGateErr');if(e){e.textContent=msg||'';if(msg){e.classList.remove('shake');void e.offsetWidth;e.classList.add('shake');}}}
+  function setHint(html){var h=$('scGateHint');if(h)h.innerHTML=html;}
+  function hideWecom(){var qr=$('scGateQr');if(qr)qr.style.display='none';var d=$('scGateDivider');if(d)d.style.display='none';}
+  function focusCard(){try{var f=$('scGate').querySelector('.sc-gate-card');if(f){f.setAttribute('tabindex','-1');f.focus();}}catch(e){}}
+
+  // 工号核验
+  function startEmp(demo){
+    hideWecom();
+    var idI=$('scGateEmpId'), btn=$('scGateEmpBtn');
+    if(!idI||!btn)return;
+    function submit(){
+      var id=idI.value.trim();
+      if(!/^103\d{5}$/.test(id)){showErr('工号无效');return;}
+      if(demo){ showErr(''); authed(); return; }
+      showErr(''); btn.disabled=true; btn.textContent='验证中…';
+      fetch('/api/auth/employee',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({emp_id:id}),credentials:'same-origin'})
+        .then(function(r){return r.json().then(function(d){return {ok:r.ok&&d.ok,d:d};});})
+        .then(function(res){
+          if(res.ok){ authed(); }
+          else { showErr((res.d&&res.d.msg)||'验证失败'); btn.disabled=false; btn.textContent='验证进入'; }
+        })
+        .catch(function(){ showErr('网络异常，无法连接门禁服务'); btn.disabled=false; btn.textContent='验证进入'; });
+    }
+    btn.onclick=submit;
+    idI.addEventListener('keydown',function(e){if(e.key==='Enter')submit();});
+    idI.focus();
+  }
+
+  // 演示模式（无后端 / ?demo=1）
+  function showDemo(){
+    var d=$('scGateDemo');if(d)d.style.display='block';
+    hideWecom();
+    var de=$('scGateDemoEnter');
+    if(de)de.onclick=function(){
+      var id=$('scGateEmpId');
+      if(id&&/^103\d{5}$/.test(id.value.trim())){ showErr(''); authed(); }
+      else showErr('工号无效');
+    };
+    startEmp(true);
+  }
+
+  // 企业微信扫码（仅在配置企微凭据时）
+  function qrSVG(){
+    var N=25, cell=100/N, parts=['<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">','<rect width="100" height="100" fill="#fff"/>'];
+    var seed=20260730;
+    function rnd(){seed=(seed*1103515245+12345)&0x7fffffff;return seed/0x7fffffff;}
+    function finder(x,y){
+      parts.push('<rect x="'+(x*cell)+'" y="'+(y*cell)+'" width="'+(7*cell)+'" height="'+(7*cell)+'" fill="#1f2937"/>');
+      parts.push('<rect x="'+((x+1)*cell)+'" y="'+((y+1)*cell)+'" width="'+(5*cell)+'" height="'+(5*cell)+'" fill="#fff"/>');
+      parts.push('<rect x="'+((x+2)*cell)+'" y="'+((y+2)*cell)+'" width="'+(3*cell)+'" height="'+(3*cell)+'" fill="#1f2937"/>');
+    }
+    for(var y=0;y<N;y++){for(var x=0;x<N;x++){
+      if((x<8&&y<8)||(x>N-9&&y<8)||(x<8&&y>N-9))continue;
+      if(rnd()>0.55){parts.push('<rect x="'+(x*cell)+'" y="'+(y*cell)+'" width="'+cell+'" height="'+cell+'" fill="#1f2937"/>');}
+    }}
+    finder(0,0);finder(N-7,0);finder(0,N-7);
+    parts.push('</svg>');return parts.join('');
+  }
+  function setQRState(s,badge,txt){
+    var qr=$('scGateQr');if(!qr)return;
+    qr.className='sc-gate-qr state-'+s;
+    var b=$('scGateBadge'),t=$('scGateMaskTxt');
+    if(b)b.textContent=badge;if(t)t.textContent=txt;
+  }
+  function poll(ticket){
+    var iv=setInterval(function(){
+      fetch('/api/auth/wecom/status?ticket='+encodeURIComponent(ticket),{credentials:'same-origin'})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d.state==='scanned'){setQRState('scanned','✓','已在手机端扫描，请确认');setHint('已扫描 · 请在手机端点击<b>确认</b>');}
+        else if(d.state==='expired'){clearInterval(iv);setQRState('expired','!','二维码已过期');}
+        else if(d.state==='success'){clearInterval(iv);setHint('验证通过 · 正在进入…');authed();}
+      }).catch(function(){});
+    },2000);
+  }
+  function startWecom(ticket,loginUrl){
+    var qr=$('scGateQr');if(!qr)return;
+    qr.style.display='block';
+    qr.innerHTML='<iframe src="'+loginUrl+'" title="企业微信扫码登录" style="width:100%;height:100%;border:0;border-radius:6px;"></iframe>'
+      +'<div class="qr-fallback"><a href="'+loginUrl+'" target="_blank" rel="noopener">无法显示？点此在新窗口扫码</a></div>';
+    setHint('请使用企业微信 App 扫描上方二维码');
+    poll(ticket);
+  }
+
+  function init(){
+    var mask=$('scGate');if(!mask)return;
+    if(/[?&]demo=1/.test(location.search)){showDemo();focusCard();return;}
+    fetch('/api/auth/me',{credentials:'same-origin'})
+      .then(function(r){return r.status===200?r.json().then(function(d){return{ok:true,d:d};}):{ok:false};})
+      .then(function(res){
+        if(res.ok){authed();return;}
+        return fetch('/api/auth/config',{credentials:'same-origin'})
+          .then(function(r){return r.json();})
+          .then(function(cfg){
+            GATE=cfg||GATE;
+            if(cfg&&cfg.employee){ startEmp(false); }
+            else if(cfg&&cfg.wecom){ fetch('/api/auth/wecom/qrcode',{credentials:'same-origin'}).then(function(r){return r.json();}).then(function(d){startWecom(d.ticket,d.login_url);}).catch(function(){showDemo();}); }
+            else { showDemo(); }
+          })
+          .catch(function(){ showDemo(); });
+      })
+      .catch(function(){ showDemo(); });
+    focusCard();
+  }
+  if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
 })();
+
 </script>
 </body>
 </html>
